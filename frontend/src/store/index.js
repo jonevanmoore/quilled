@@ -1,9 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { restoreCSRF, csrfFetch } from './csrf';
+import * as sessionActions from './session';
+import sessionReducer from './session';
 
 const rootReducer = combineReducers({
   // add reducer functions here
+  session: sessionReducer,
 });
 
 
@@ -29,6 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   window.csrfFetch = csrfFetch;
   window.store = store;
+  window.sessionActions = sessionActions
 }
 
 export default configureStore;
