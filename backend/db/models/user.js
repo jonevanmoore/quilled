@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         len: [4, 30],
         isNotEmail(value) {
@@ -19,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         len: [3, 256]
       }
@@ -46,11 +48,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     });
-
-  User.associate = function (models) {
-    // associations can be defined here
-  };
-
 
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance
@@ -89,6 +86,12 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope('currentUser').findByPk(user.id);
   };
+
+  User.associate = function (models) {
+    // associations can be defined here
+  };
+
+
 
   return User;
 };
