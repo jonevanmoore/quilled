@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import './LoginForm.css'
 
 function LoginFormPage() {
@@ -27,31 +27,48 @@ function LoginFormPage() {
 
     return (
         <body>
-            <div className="login-container">
+            <div className="form-container">
 
                 <form onSubmit={handleSubmit}>
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
-                    <label>
-                        <input
-                            type="text"
-                            placeholder="Username/Email"
-                            value={credential}
-                            onChange={(e) => setCredential(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button type="submit">Log In</button>
+                    <div className="login-container">
+                        <div className="login-label-div">
+                            <label className="login-text">
+                                LOGIN
+                            </label>
+                        </div>
+                        <div className="username-input-div">
+                            <input
+                                className="input-tag"
+                                type="text"
+                                placeholder="Username/Email"
+                                value={credential}
+                                onChange={(e) => setCredential(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        <div className="password-input-div">
+
+                            <input
+                                className="input-tag"
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="sign-in-btn-div">
+                            <button className="btn" type="submit">SIGN IN</button>
+                        </div>
+                        <div className="go-signup">
+                            <text className="sign-up-text">Don't have an account?</text>
+                            <Link to="/signup" className="sign-up-link">Sign up</Link>
+                        </div>
+                    </div>
                 </form>
             </div>
         </body >
