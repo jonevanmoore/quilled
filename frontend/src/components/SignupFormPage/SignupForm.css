@@ -1,6 +1,8 @@
 .signup-body {
     display: flex;
     background-color: transparent;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .login-link-div {
@@ -88,9 +90,7 @@
 .create-account-div {
     font-size: 30px;
     display: flex;
-    background: -webkit-linear-gradient(rgb(0, 150, 173) 8.3%, rgb(22, 75, 135));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgb(0, 150, 173);
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     top: 80px;
@@ -135,6 +135,7 @@
     padding-right: 47%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+
 }
 
 .form-div {
@@ -188,3 +189,98 @@
 }
 
 /* RIGHT SIDE END */
+
+
+
+
+
+/* PHONE SCREEN FIT */
+@media screen and (max-width: 800px) {
+    .signup-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+
+    /* LEFT SIDE */
+
+    .login-link-div {
+        border-radius: 10px;
+        padding-right: 1%;
+    }
+
+    .logo-sign-pg {
+        width: 100px;
+        height: 150px;
+        position: relative;
+        left: 200px;
+        top: 10px;
+    }
+
+    .welcome-back-div {
+        font-size: 20px;
+        position: relative;
+        left: 120px;
+        top: -10px;
+    }
+
+    .mid-text {
+        font-size: 20px;
+        position: relative;
+        left: 5px;
+        top: -50px;
+    }
+
+    .login-btn-link {
+        font-size: 20px;
+        position: relative;
+        left: 140px;
+        top: -35px;
+    }
+
+    /* LEFT SIDE END */
+
+    /* RIGHT SIDE */
+
+    .form-container-sign-up {
+        background-color: aliceblue;
+        text-align: center;
+        padding-bottom: 15%;
+        padding-right: 20%;
+        border-radius: 10px;
+        position: relative;
+        bottom: 5px;
+
+    }
+
+    .create-account-div {
+        font-size: 20px;
+        position: relative;
+        left: 130px;
+        top: 10px;
+    }
+
+    .jon-links {
+        position: relative;
+        left: 52px;
+        top: 10px;
+    }
+
+    .link {
+        font-size: 20px;
+    }
+
+    .sign-up-reason {
+        position: relative;
+        left: 55px;
+        top: 35px;
+    }
+
+    .form-div {
+        position: relative;
+        left: 55px;
+        top: 15px;
+    }
+}

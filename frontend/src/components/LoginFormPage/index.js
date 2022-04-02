@@ -40,59 +40,57 @@ function LoginFormPage() {
     };
 
     return (
-        <body>
+        <div >
             <title>Quilled - Sign In</title>
-            <div className="form-container">
 
-                <form onSubmit={handleSubmit}>
-                    <ul>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                    </ul>
-                    <div className="login-container">
-                        <div id="logo-div">
-                            <img src={logo} className="logo" />
-                        </div>
-                        <div className="login-label-div">
-                            <label className="login-text">
-                                LOGIN
-                            </label>
-                        </div>
-                        <div className="username-input-div">
-                            <input
-                                className="input-tag"
-                                type="text"
-                                placeholder="Username/Email"
-                                value={credential}
-                                onChange={(e) => setCredential(e.target.value)}
-                                required
-                            />
-                        </div>
-
-                        <div className="password-input-div">
-
-                            <input
-                                className="input-tag"
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="sign-in-btn-div">
-                            <button className="btn" type="submit">SIGN IN</button>
-                        </div>
-                        <div className="demo-btn-div">
-                            <button className="demo-btn" onClick={demoLogin}>DEMO USER</button>
-                        </div>
-                        <div className="go-signup">
-                            <span className="sign-up-text">Don't have an account?</span>
-                            <Link to="/signup" className="sign-up-link">Sign up</Link>
-                        </div>
+            <form onSubmit={handleSubmit} className="form-container">
+                <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                <div className="login-container">
+                    <div id="logo-div">
+                        <img src={logo} className="logo" />
                     </div>
-                </form>
-            </div>
-        </body >
+                    <div className="login-label-div">
+                        <label className="login-text">
+                            LOGIN
+                        </label>
+                    </div>
+                    <div className="username-input-div">
+                        <input
+                            className="input-tag"
+                            type="text"
+                            placeholder="Username/Email"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <div className="password-input-div">
+
+                        <input
+                            className="input-tag"
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="sign-in-btn-div">
+                        <button className="btn" type="submit">SIGN IN</button>
+                    </div>
+                    <div className="demo-btn-div">
+                        <button className="demo-btn" onClick={demoLogin}>DEMO USER</button>
+                    </div>
+                    <div className="go-signup">
+                        <span className="sign-up-text">Don't have an account?</span>
+                        <Link to="/signup" className="sign-up-link">Sign up</Link>
+                    </div>
+                </div>
+            </form>
+        </div>
     );
 }
 
