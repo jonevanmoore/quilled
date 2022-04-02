@@ -54,7 +54,7 @@ function SignupFormPage() {
                 </div>
 
                 <div className="jon-links">
-                    <a href="https://github.com/jonevanmoore/snack-overflow" target="_blank" className="link"> <i className="fa-brands fa-github"></i></a>
+                    <a href="https://github.com/jonevanmoore/quilled" target="_blank" className="link"> <i className="fa-brands fa-github"></i></a>
                     <a href="https://linkedin.com/in/jonevanmoore" target="_blank" className="link"><i className="fa-brands fa-linkedin-in"></i></a>
                     <a href="mailto:jonevanmoore@yahoo.com" target="_blank" className="link"><i className="fa-solid fa-envelope"></i></a>
                 </div>

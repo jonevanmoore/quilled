@@ -7,6 +7,14 @@ body {
     transition: 0.3s;
 }
 
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
 .login-container {
     width: 278px;
     height: 238px;
@@ -17,9 +25,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
-    top: 200px;
-    left: 550px;
     padding-top: 40px;
     padding-bottom: 70px;
 }
