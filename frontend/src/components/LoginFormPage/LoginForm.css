@@ -122,3 +122,10 @@ body {
 .sign-up-link:hover {
     color: rgba(15, 51, 92, 1);
 }
+
+
+@media screen and (max-width: 800px) {
+    .form-container {
+        height: 60vh;
+    }
+}
