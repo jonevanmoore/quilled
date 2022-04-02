@@ -1,0 +1,190 @@
+.signup-body {
+    display: flex;
+    background-color: transparent;
+}
+
+.login-link-div {
+    background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgb(0, 150, 173) 8.3%, rgba(15, 51, 92, 1) 79.4%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: monospace;
+    font-weight: lighter;
+    transition: 0.3s;
+    padding-right: 2%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: aliceblue 4px solid;
+}
+
+
+/* LEFT SIDE */
+
+.logo-sign-pg {
+    width: 150px;
+    height: 200px;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+
+.welcome-back-div {
+    font-size: 30px;
+    display: flex;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 80px;
+    left: 20px
+}
+
+#welcome-back2 {
+    margin-left: 10px;
+}
+
+.mid-text {
+    text-align: center;
+    font-size: 20px;
+    color: aliceblue;
+    font-weight: lighter;
+    position: relative;
+    top: 60px;
+    left: 20px;
+}
+
+.login-btn-link {
+    font-size: 20px;
+    color: aliceblue;
+    position: relative;
+    top: 100px;
+    left: 90px;
+    border: 1px aliceblue solid;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 10px 60px 10px 60px;
+    transition: 0.3s;
+}
+
+.login-btn-link:hover {
+    background-color: aliceblue;
+    color: rgb(0, 150, 173);
+}
+
+/* LEFT SIDE END */
+
+
+
+/* RIGHT SIDE */
+.err-ul {
+    position: relative;
+    top: 15px;
+}
+
+.err-msg {
+    list-style-type: none;
+    color: rgb(162, 1, 1);
+    text-align: left;
+}
+
+.create-account-div {
+    font-size: 30px;
+    display: flex;
+    background: -webkit-linear-gradient(rgb(0, 150, 173) 8.3%, rgb(22, 75, 135));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 80px;
+    left: 350px
+}
+
+#create-account2 {
+    margin-left: 10px;
+}
+
+.jon-links {
+    position: relative;
+    top: 80px;
+    left: 330px;
+}
+
+.link {
+    font-size: 30px;
+    margin: 0 10px 0 10px;
+    padding: 10px;
+    color: black;
+    border: 1px black solid;
+    border-radius: 100%;
+    transition: 0.3s;
+}
+
+.link:hover {
+    color: rgb(0, 150, 173);
+}
+
+.sign-up-reason {
+    position: relative;
+    top: 130px;
+    left: 330px;
+    color: gray;
+}
+
+.form-container-sign-up {
+    background-color: aliceblue;
+    text-align: center;
+    padding-bottom: 20%;
+    padding-right: 47%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form-div {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    top: 110px;
+    left: 350px;
+}
+
+.input-icon {
+    position: relative;
+    top: 28px;
+    right: 175px;
+    color: rgb(94, 94, 94);
+}
+
+.signup-input {
+    height: 35px;
+    width: 350px;
+    border-radius: 5px;
+    border: 1px solid aliceblue;
+    transition: 0.3s;
+    padding-left: 30px;
+}
+
+.signup-input:hover {
+    border: 1px solid rgb(0, 150, 173);
+}
+
+.sign-up-btn {
+    font-family: monospace;
+    font-size: 20px;
+    width: 250px;
+    position: relative;
+    top: 25px;
+    left: 50px;
+    color: aliceblue;
+    border: 1px aliceblue solid;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 12px 60px 12px 60px;
+    transition: 0.3s;
+    background-color: rgb(0, 150, 173);
+}
+
+.sign-up-btn:hover {
+    background-color: rgba(15, 51, 92, 1);
+}
+
+/* RIGHT SIDE END */

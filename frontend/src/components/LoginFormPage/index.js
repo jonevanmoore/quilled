@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, useHistory } from 'react-router-dom';
 import './LoginForm.css'
+import logo from '../static/images/quilled-logo.png';
+
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -10,6 +12,7 @@ function LoginFormPage() {
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
+    const history = useHistory()
 
     if (sessionUser) return (
         <Redirect to="/" />
@@ -25,8 +28,20 @@ function LoginFormPage() {
             });
     }
 
+    const demoLogin = async e => {
+        e.preventDefault();
+        await dispatch(
+            sessionActions.login({
+                credential: "DougDemodome",
+                password: "password",
+            })
+        );
+        return history.push(`/`);
+    };
+
     return (
         <body>
+            <title>Quilled - Sign In</title>
             <div className="form-container">
 
                 <form onSubmit={handleSubmit}>
@@ -34,6 +49,9 @@ function LoginFormPage() {
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                     <div className="login-container">
+                        <div id="logo-div">
+                            <img src={logo} className="logo" />
+                        </div>
                         <div className="login-label-div">
                             <label className="login-text">
                                 LOGIN
@@ -64,8 +82,11 @@ function LoginFormPage() {
                         <div className="sign-in-btn-div">
                             <button className="btn" type="submit">SIGN IN</button>
                         </div>
+                        <div className="demo-btn-div">
+                            <button className="demo-btn" onClick={demoLogin}>DEMO USER</button>
+                        </div>
                         <div className="go-signup">
-                            <text className="sign-up-text">Don't have an account?</text>
+                            <span className="sign-up-text">Don't have an account?</span>
                             <Link to="/signup" className="sign-up-link">Sign up</Link>
                         </div>
                     </div>
