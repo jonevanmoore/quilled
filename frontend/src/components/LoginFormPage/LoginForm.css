@@ -7,6 +7,14 @@ body {
     transition: 0.3s;
 }
 
+.login-err {
+    list-style-type: none;
+    color: rgb(220, 91, 91);
+    position: relative;
+    top: 150px;
+    right: 20px;
+}
+
 .form-container {
     display: flex;
     justify-content: space-between;

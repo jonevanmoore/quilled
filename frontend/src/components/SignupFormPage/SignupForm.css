@@ -119,6 +119,7 @@
 
 .link:hover {
     color: rgb(0, 150, 173);
+    border-color: rgb(0, 150, 173);
 }
 
 .sign-up-reason {
