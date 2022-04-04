@@ -13,7 +13,7 @@ export const getNotebooks = (notebooks) => {
 //THUNKS
 
 //GET NOTEBOOKS
-export const getNotebooksThunk = (userId) => async dispatch => {
+export const fetchNotebooks = (userId) => async (dispatch) => {
     const res = await csrfFetch(`/api/users/${userId}/notebooks`)
     const notebooks = await res.json();
     dispatch(getNotebooks(notebooks.notebooks));

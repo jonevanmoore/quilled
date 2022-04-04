@@ -7,23 +7,21 @@ import * as notebooksActions from '../../store/notebooks'
 export default function Notebooks() {
     const dispatch = useDispatch()
     const history = useHistory()
+    const [notebookList, setNotebooklist] = useState([])
 
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id
-    const notebooks = useSelector(state => state.notebooks.notebooks);
-    const nbData = Object.values(notebooks)
-    console.log(nbData)
+    const notebooks = useSelector(state => state.notebooks);
+    console.log(notebooks)
 
-    const [notebookList, setNotebooklist] = useState([])
 
     useEffect(() => {
-        dispatch(notebooksActions.getNotebooksThunk(userId))
+        dispatch(notebooksActions.fetchNotebooks(userId))
     }, [dispatch])
 
     return (
         <>
             <h2>Notebooks</h2>
-            {console.log(notebookList)}
         </>
     )
 }
