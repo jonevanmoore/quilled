@@ -5,6 +5,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Notebooks from './components/Notebooks';
+import Notes from './components/Notes'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
@@ -35,6 +36,10 @@ function App() {
 
           <Route path='/notebooks'>
             <Notebooks />
+          </Route>
+
+          <Route path='/notes'>
+            <Notes />
           </Route>
 
           <Route>
