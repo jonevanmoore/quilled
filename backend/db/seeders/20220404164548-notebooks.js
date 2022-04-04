@@ -12,7 +12,19 @@ module.exports = {
       {
         title: 'My name is Doug Dimmadome, owner of the Dimmsdale Dimmadome!',
         userId: 1
-      }
+      },
+      {
+        title: 'TITLE 2',
+        userId: 1
+      },
+      {
+        title: 'TITLE 3',
+        userId: 1
+      },
+      {
+        title: 'TITLE 4',
+        userId: 1
+      },
     ], {});
   },
 

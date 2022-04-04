@@ -11,17 +11,20 @@ export default function Notebooks() {
 
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id
-    const notebooks = useSelector(state => state.notebooks);
-    console.log(notebooks)
-
+    const notebooks = useSelector(state => state.notebooks.notebooks);
+    const nbData = Object.values(notebooks)
+    console.log(nbData)
 
     useEffect(() => {
         dispatch(notebooksActions.fetchNotebooks(userId))
-    }, [dispatch])
+    }, [dispatch, userId])
 
     return (
         <>
             <h2>Notebooks</h2>
+            {nbData.map((nb) => (
+                <h2 key={nb.id}>{nb.title}</h2>
+            ))}
         </>
     )
 }
