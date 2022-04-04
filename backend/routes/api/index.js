@@ -4,10 +4,8 @@ const usersRouter = require('./users.js');
 const notebooksRouter = require('./notebooks.js');
 
 router.use('/session', sessionRouter);
-
 router.use('/users', usersRouter);
-
-router.use(notebooksRouter)
+router.use(notebooksRouter);
 
 
 module.exports = router;
