@@ -20,6 +20,15 @@ router.get('/users/:userId(\\d+)/notebooks', asyncHandler(async (req, res) => {
 })
 );
 
+//CREATE NEW NOTEBOOK
+router.post('/users/:userId(\\d+)/notebooks', asyncHandler(async (req, res) => {
+    const { userId } = req.body
+
+    const newNotebook = await Notebook.create({ userId })
+
+    res.json({ newNotebook })
+}))
+
 
 
 

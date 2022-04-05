@@ -19,12 +19,19 @@ export default function Notebooks() {
         dispatch(notebooksActions.fetchNotebooks(userId))
     }, [dispatch, userId])
 
+    const newNotebook = async () => {
+        const noteId = await dispatch(notebooksActions.createNotebook(userId))
+    }
+
     return (
         <>
             <h2>Notebooks</h2>
             {nbData.map((nb) => (
-                <h2 key={nb.id}>{nb.title}</h2>
+                <div key={nb.id}>
+                    <Link to={`/notebooks/${nb.id}`}>{nb.title}</Link>
+                </div>
             ))}
+            <button onClick={newNotebook}>CREATE NOTEBOOK</button>
         </>
     )
 }
