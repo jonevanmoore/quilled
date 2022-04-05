@@ -46,6 +46,28 @@ router.delete('/users/:userId(\\d+)/notebooks/:notebookId(\\d+)', asyncHandler(a
     res.json({ notebook })
 }))
 
+//EDIT NOTEBBOOK
+router.put('/users/:userId(\\d+)/notebooks/:notebookId(\\d+)', asyncHandler(async (req, res) => {
+    const { userId, notebookId } = req.params
+    const { title } = req.body
+
+    const notebook = await Notebook.findOne({
+        where: {
+            id: notebookId,
+            userId,
+        }
+    })
+
+    const updatedTitle = title || notebook.title
+
+    await notebook.update({
+        title: updatedTitle
+    })
+
+    await notebook.save()
+
+    res.json({ notebook })
+}))
 
 
 
