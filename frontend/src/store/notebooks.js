@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET_NOTEBOOKS = '/users/GET_NOTEBOOKS'
 const CREATE_NOTEBOOK = '/users/CREATE_NOTEBOOK'
 const DELETE_NOTEBOOK = '/users/DELETE_NOTEBOOK'
+const UPDATE_NOTEBOOK = '/users/UPDATE_NOTEBOOK'
 
 //MANY
 export const getNotebooks = (notebooks) => {
@@ -22,6 +23,13 @@ export const createNewNotebook = (newNotebook) => {
 export const deleteNotebook = (notebook) => {
     return {
         type: DELETE_NOTEBOOK,
+        notebook
+    }
+}
+
+export const updateNotebook = (notebook) => {
+    return {
+        type: UPDATE_NOTEBOOK,
         notebook
     }
 }
@@ -50,8 +58,8 @@ export const createNotebook = (userId) => async (dispatch) => {
 }
 
 //DELETE NOTEBOOK
-export const destroyNotebook = (notebook) => async (dispatch) => {
-    const { userId, id } = notebook;
+export const destroyNotebook = (nbData) => async (dispatch) => {
+    const { userId, id } = nbData;
 
     const res = await csrfFetch(`/api/users/${userId}/notebooks/${id}`, {
         method: 'DELETE',
@@ -61,6 +69,19 @@ export const destroyNotebook = (notebook) => async (dispatch) => {
     const removeNotebook = await res.json()
     dispatch(deleteNotebook(removeNotebook.notebook))
     return removeNotebook
+}
+
+//EDIT NOTEBOOK
+export const editNotebook = (nbData) => async (dispatch) => {
+    const { notebookId, title, userId } = nbData
+    const res = await csrfFetch(`/api/users/${userId}/notebooks/${notebookId}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title })
+    });
+
+    const patchNotebook = await res.json()
+    dispatch(updateNotebook(patchNotebook.notebook))
+    return patchNotebook.notebook.id
 }
 
 
@@ -90,6 +111,12 @@ const notebooksReducer = (state = initialState, action) => {
             newState = { ...state };
             newNotebooks = { ...state.notebooks };
             delete newNotebooks[action.notebook.id];
+            newState.notebooks = newNotebooks;
+            return newState;
+        case UPDATE_NOTEBOOK:
+            newState = { ...state };
+            newNotebooks = { ...state.notebooks };
+            newNotebooks[action.notebook.id] = action.notebook;
             newState.notebooks = newNotebooks;
             return newState;
         default:
