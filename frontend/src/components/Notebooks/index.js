@@ -13,22 +13,22 @@ export default function Notebooks() {
     const userId = sessionUser.id
     const notebooks = useSelector(state => state.notebooks.notebooks);
     const nbData = Object.values(notebooks)
-    console.log(nbData)
 
     useEffect(() => {
         dispatch(notebooksActions.fetchNotebooks(userId))
     }, [dispatch, userId])
 
-    const newNotebook = async () => {
-        const noteId = await dispatch(notebooksActions.createNotebook(userId))
+    const newNotebook = () => {
+        dispatch(notebooksActions.createNotebook(userId))
     }
 
     return (
         <>
+            <title>Quill - My Notebooks</title>
             <h2>Notebooks</h2>
-            {nbData.map((nb) => (
-                <div key={nb.id}>
-                    <Link to={`/notebooks/${nb.id}`}>{nb.title}</Link>
+            {nbData.map((notebook) => (
+                <div key={notebook.id}>
+                    <Link to={`/notebooks/${notebook.id}`}>{notebook.title}</Link>
                 </div>
             ))}
             <button onClick={newNotebook}>CREATE NOTEBOOK</button>

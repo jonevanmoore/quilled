@@ -5,10 +5,10 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Notebooks from './components/Notebooks';
-import Notes from './components/Notes'
+import IndieNotebook from './components/IndieNotebook';
+import Notes from './components/Notes';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import IndieNotebook from './components/IndieNotebook'
 
 function App() {
   const dispatch = useDispatch()
