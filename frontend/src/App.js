@@ -35,7 +35,7 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path='/notebooks'>
+          <Route path='/notebooks' exact>
             <Notebooks />
           </Route>
 
@@ -43,7 +43,7 @@ function App() {
             <IndieNotebook />
           </Route>
 
-          <Route path='/notes'>
+          <Route path='/notes' exact>
             <Notes />
           </Route>
 
