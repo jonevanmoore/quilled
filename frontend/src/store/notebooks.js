@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET_NOTEBOOKS = '/users/GET_NOTEBOOKS'
 const CREATE_NOTEBOOK = '/users/CREATE_NOTEBOOK'
 
+//MANY
 export const getNotebooks = (notebooks) => {
     return {
         type: GET_NOTEBOOKS,
