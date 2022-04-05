@@ -58,10 +58,8 @@ router.put('/users/:userId(\\d+)/notebooks/:notebookId(\\d+)', asyncHandler(asyn
         }
     })
 
-    const updatedTitle = title || notebook.title
-
     await notebook.update({
-        title: updatedTitle
+        title
     })
 
     await notebook.save()

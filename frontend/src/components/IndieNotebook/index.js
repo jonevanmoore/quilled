@@ -37,8 +37,10 @@ export default function IndieNotebook() {
 
     return (
         <>
+            <title>{`Quilled - ${notebook.title}`}</title>
             <h2>IndieNOtebook</h2>
             <h2>{notebook.title}</h2>
+            <h2>{notebook.updatedAt}</h2>
             <button onClick={deleteNotebook}>DELETE NOTEBOOK</button>
 
             <label>Title</label>
@@ -48,7 +50,7 @@ export default function IndieNotebook() {
                 type="text"
             >
             </input>
-            <button onClick={editNotebook}>UPDATE</button>
+            <button onClick={editNotebook} disabled={notebookTitle.length < 1}>UPDATE</button>
 
         </>
     )

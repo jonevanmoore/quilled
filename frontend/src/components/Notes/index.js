@@ -20,6 +20,7 @@ const Notes = () => {
 
     return (
         <>
+            <title>Quilled - My Notes</title>
             <h2>Notes</h2>
             <ul>
                 {notesData.map((note) => (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link, useHistory } from 'react-router-dom';
+import './Notebooks.css'
 
 import * as notebooksActions from '../../store/notebooks'
 
@@ -24,11 +25,11 @@ export default function Notebooks() {
 
     return (
         <>
-            <title>Quill - My Notebooks</title>
+            <title>Quilled - My Notebooks</title>
             <h2>Notebooks</h2>
             {nbData.map((notebook) => (
                 <div key={notebook.id}>
-                    <Link to={`/notebooks/${notebook.id}`}>{notebook.title}</Link>
+                    <Link to={`/notebooks/${notebook.id}`} className="link-text">{notebook.title}</Link>
                 </div>
             ))}
             <button onClick={newNotebook}>CREATE NOTEBOOK</button>
