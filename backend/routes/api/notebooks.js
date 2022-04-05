@@ -29,6 +29,23 @@ router.post('/users/:userId(\\d+)/notebooks', asyncHandler(async (req, res) => {
     res.json({ newNotebook })
 }))
 
+//DELETE NOTEBOOK
+router.delete('/users/:userId(\\d+)/notebooks/:notebookId(\\d+)', asyncHandler(async (req, res) => {
+    const { userId } = req.params
+    const { id } = req.body
+
+    const notebook = await Notebook.findOne({
+        where: {
+            userId,
+            id,
+        }
+    })
+
+    await notebook.destroy()
+
+    res.json({ notebook })
+}))
+
 
 
 

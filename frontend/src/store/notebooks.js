@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const GET_NOTEBOOKS = '/users/GET_NOTEBOOKS'
 const CREATE_NOTEBOOK = '/users/CREATE_NOTEBOOK'
+const DELETE_NOTEBOOK = '/users/DELETE_NOTEBOOK'
 
 //MANY
 export const getNotebooks = (notebooks) => {
@@ -15,6 +16,13 @@ export const createNewNotebook = (newNotebook) => {
     return {
         type: CREATE_NOTEBOOK,
         newNotebook
+    }
+}
+
+export const deleteNotebook = (notebook) => {
+    return {
+        type: DELETE_NOTEBOOK,
+        notebook
     }
 }
 
@@ -37,9 +45,22 @@ export const createNotebook = (userId) => async (dispatch) => {
     });
 
     const newNotebook = await res.json()
-    console.log(newNotebook)
     dispatch(createNewNotebook(newNotebook.newNotebook))
     return newNotebook.newNotebook.id
+}
+
+//DELETE NOTEBOOK
+export const destroyNotebook = (notebook) => async (dispatch) => {
+    const { userId, id } = notebook;
+
+    const res = await csrfFetch(`/api/users/${userId}/notebooks/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ id })
+    });
+
+    const removeNotebook = await res.json()
+    dispatch(deleteNotebook(removeNotebook.notebook))
+    return removeNotebook
 }
 
 
@@ -63,6 +84,12 @@ const notebooksReducer = (state = initialState, action) => {
             newState = { ...state };
             newNotebooks = { ...state.notebooks };
             newNotebooks[action.newNotebook.id] = action.newNotebook;
+            newState.notebooks = newNotebooks;
+            return newState;
+        case DELETE_NOTEBOOK:
+            newState = { ...state };
+            newNotebooks = { ...state.notebooks };
+            delete newNotebooks[action.notebook.id];
             newState.notebooks = newNotebooks;
             return newState;
         default:
