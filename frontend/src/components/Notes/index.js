@@ -25,7 +25,7 @@ const Notes = () => {
                 {notesData.map((note) => (
                     <>
                         <li key={note.id}>{note.title}</li>
-                        <text>{note.content}</text>
+                        <span>{note.content}</span>
                     </>
                 ))}
             </ul>
