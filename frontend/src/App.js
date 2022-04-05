@@ -8,6 +8,7 @@ import Notebooks from './components/Notebooks';
 import Notes from './components/Notes'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import IndieNotebook from './components/IndieNotebook'
 
 function App() {
   const dispatch = useDispatch()
@@ -36,6 +37,10 @@ function App() {
 
           <Route path='/notebooks'>
             <Notebooks />
+          </Route>
+
+          <Route path='/notebooks/:notebookId'>
+            <IndieNotebook />
           </Route>
 
           <Route path='/notes'>
