@@ -1,3 +1,38 @@
+body {
+    margin: 0;
+}
+
+.nav-div {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 0.1px solid aliceblue;
+    box-shadow: 0px -30px 100px 0px aliceblue;
+
+}
+
 #navlink {
     color: aliceblue;
+}
+
+.logo-letters {
+    width: 420px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.logo-link {
+    text-align: center;
+}
+
+.user-stats {
+    text-align: start;
+}
+
+#stats {
+    display: flex;
+    flex-direction: column;
+
 }

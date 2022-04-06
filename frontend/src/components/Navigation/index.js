@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import logo from '../static/images/quilled.png';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -11,37 +12,38 @@ function Navigation({ isLoaded }) {
     let navGreet;
     if (sessionUser) {
         navGreet = `Welcome, ${sessionUser.username}`
-        sessionLinks = (
-            <>
+        return (
+            <div className="nav-div">
+                <div className='user-stats'>
+                    <span>{navGreet}</span>
+                    <div id='stats'>
+                        <span>4 notebooks</span>
+                        <span>20 notes</span>
+                    </div>
+                </div>
                 <div className='nav-links'>
                     <NavLink to="/notebooks" id='navlink'>Notebooks</NavLink>
+                </div>
+                <div className="logo-div">
+                    <NavLink to='/' className='logo-link'><img src={logo} className="logo-letters" /></NavLink>
+                    {isLoaded && sessionLinks}
+                </div >
+                <div>
                     <NavLink to="/notes" id="navlink">Notes</NavLink>
                 </div>
                 <div className='user-stuff'>
-                    <span>{navGreet}</span>
                     <ProfileButton user={sessionUser} />
                 </div>
-            </>
+            </div>
         );
     } else {
-        navGreet = "Login to get started!"
-        sessionLinks = (
-            <>
-                <span>{navGreet}</span>
-                <NavLink to="/login" id='navlink'>Log In</NavLink>
-                <NavLink to="/signup" id='navlink'>Sign Up</NavLink>
-            </>
+        return (
+            <div className="nav-div">
+                <NavLink to='/' className='logo-link'><img src={logo} className="logo-letters" /></NavLink>
+                {isLoaded && sessionLinks}
+            </div >
         );
     }
-
-    return (
-        < ul >
-            <li>
-                <NavLink exact to="/" id='navlink'>Home</NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-        </ul >
-    );
 }
 
 export default Navigation;
