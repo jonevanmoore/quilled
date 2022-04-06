@@ -14,24 +14,24 @@ function Navigation({ isLoaded }) {
         navGreet = `Welcome, ${sessionUser.username}`
         return (
             <div className="nav-div">
-                <div className='user-stats'>
-                    <span>{navGreet}</span>
+                <div className='user-stats' id='nav-el'>
+                    <span >{navGreet}</span>
                     <div id='stats'>
                         <span>4 notebooks</span>
                         <span>20 notes</span>
                     </div>
                 </div>
-                <div className='nav-links'>
+                <div className='nav-links' id='nav-el'>
                     <NavLink to="/notebooks" id='navlink'>Notebooks</NavLink>
                 </div>
-                <div className="logo-div">
+                <div className="logo-div" id='nav-el'>
                     <NavLink to='/' className='logo-link'><img src={logo} className="logo-letters" /></NavLink>
                     {isLoaded && sessionLinks}
                 </div >
-                <div>
+                <div id='nav-el'>
                     <NavLink to="/notes" id="navlink">Notes</NavLink>
                 </div>
-                <div className='user-stuff'>
+                <div className='user-stuff' id='nav-el'>
                     <ProfileButton user={sessionUser} />
                 </div>
             </div>

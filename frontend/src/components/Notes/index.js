@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link, useHistory } from 'react-router-dom';
 
 import * as notesActions from '../../store/notes'
+import * as notebooksActions from '../../store/notebooks'
 
 const Notes = () => {
     const dispatch = useDispatch()
@@ -14,20 +15,29 @@ const Notes = () => {
     const notes = useSelector(state => state.notes.notes)
     const notesData = Object.values(notes)
 
+    const notebooks = useSelector(state => state.notebooks.notebooks);
+
+
     useEffect(() => {
         dispatch(notesActions.fetchNotes(userId))
+        dispatch(notebooksActions.fetchNotebooks(userId))
     }, [dispatch])
+
+    const newNote = () => {
+        const newNote = dispatch(notesActions.createNote(userId))
+    }
 
     return (
         <>
             <title>Quilled - My Notes</title>
             <h2>Notes</h2>
+            <button onClick={newNote}>CREATE NOTE</button>
             <ul>
                 {notesData.map((note) => (
-                    <>
-                        <li key={note.id}>{note.title}</li>
+                    <div key={note.id}>
+                        <li >{note.title}</li>
                         <span>{note.content}</span>
-                    </>
+                    </div>
                 ))}
             </ul>
         </>
