@@ -11,10 +11,10 @@ export const getNotes = (notes) => {
         notes
     }
 }
-export const createNewNote = (note) => {
+export const createNewNote = (newNote) => {
     return {
         type: CREATE_NOTE,
-        note
+        newNote
     }
 }
 export const deleteNote = (note) => {
@@ -53,6 +53,18 @@ export const createNote = (userId) => async (dispatch) => {
 }
 
 //DELETE NOTE
+export const destroyNote = (noteData) => async (dispatch) => {
+    const { userId, id } = noteData;
+
+    const res = await csrfFetch(`/api/users/${userId}/notes/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ id })
+    });
+
+    const removeNote = await res.json()
+    dispatch(deleteNote(removeNote.note))
+    return removeNote
+}
 
 
 
@@ -74,7 +86,15 @@ const notesReducer = (state = initialState, action) => {
             return newState;
         case CREATE_NOTE:
             newState = { ...state };
-            newState[action.note.id] = action.note;
+            newNotes = { ...state.notes }
+            newNotes[action.newNote.id] = action.newNote;
+            newState.notes = newNotes;
+            return newState;
+        case DELETE_NOTE:
+            newState = { ...state };
+            newNotes = { ...state.notes };
+            delete newNotes[action.note.id];
+            newState.notes = newNotes;
             return newState;
         default:
             return state

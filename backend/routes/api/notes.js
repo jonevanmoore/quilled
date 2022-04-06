@@ -26,4 +26,21 @@ router.post('/users/:userId(\\d+)/notes', asyncHandler(async (req, res) => {
 
 }))
 
+//DELETE NOTE
+router.delete('/users/:userId(\\d+)/notes/:noteId(\\d+)', asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+    const { id } = req.body;
+
+    const note = await Note.findOne({
+        where: {
+            userId,
+            id,
+        }
+    })
+
+    await note.destroy()
+
+    res.json({ note })
+}))
+
 module.exports = router;

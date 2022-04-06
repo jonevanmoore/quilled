@@ -12,7 +12,7 @@ export default function IndieNotebook() {
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id
     const notebook = useSelector(state => state.notebooks.notebooks[notebookId]);
-    const [notebookTitle, setNotebookTitle] = useState(notebook.title)
+    const [notebookTitle, setNotebookTitle] = useState(notebook?.title)
 
     useEffect(() => {
         dispatch(notebooksActions.fetchNotebooks(userId))
@@ -37,20 +37,20 @@ export default function IndieNotebook() {
 
     return (
         <>
-            <title>{`Quilled - ${notebook.title}`}</title>
+            <title>{`Quilled - ${notebook?.title}`}</title>
             <h2>IndieNOtebook</h2>
-            <h2>{notebook.title}</h2>
-            <h2>{notebook.updatedAt}</h2>
+            <h2>{notebook?.title}</h2>
+            <h2>{notebook?.updatedAt}</h2>
             <button onClick={deleteNotebook}>DELETE NOTEBOOK</button>
 
             <label>Title</label>
             <input
-                value={notebookTitle}
-                onChange={(e) => setNotebookTitle(e.target.value)}
+                value={notebook?.title}
+                onChange={(e) => setNotebookTitle(e?.target.value)}
                 type="text"
             >
             </input>
-            <button onClick={editNotebook} disabled={notebookTitle.length < 1}>UPDATE</button>
+            <button onClick={editNotebook} disabled={notebookTitle?.length < 1}>UPDATE</button>
 
         </>
     )

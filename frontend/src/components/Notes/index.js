@@ -21,7 +21,7 @@ const Notes = () => {
     useEffect(() => {
         dispatch(notesActions.fetchNotes(userId))
         dispatch(notebooksActions.fetchNotebooks(userId))
-    }, [dispatch, userId])
+    }, [dispatch])
 
     const newNote = () => {
         dispatch(notesActions.createNote(userId))
@@ -32,16 +32,14 @@ const Notes = () => {
             <title>Quilled - My Notes</title>
             <h2>Notes</h2>
             <button onClick={newNote}>CREATE NOTE</button>
-            <ul>
-                {notesData.map((note) => (
-                    <div key={note.id}>
-                        <Link to={`/notes/${note.id}`}>
-                            <li >{note.title}</li>
-                            <span>{note.content}</span>
-                        </Link>
-                    </div>
-                ))}
-            </ul>
+            {notesData.map((note) => (
+                <div key={note.id}>
+                    <Link to={`/notes/${note.id}`}>
+                        <li >{note.title}</li>
+                        <span>{note.content}</span>
+                    </Link>
+                </div>
+            ))}
         </>
     )
 }
