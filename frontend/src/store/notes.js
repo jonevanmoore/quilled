@@ -66,6 +66,17 @@ export const destroyNote = (noteData) => async (dispatch) => {
     return removeNote
 }
 
+export const editNote = (noteData) => async (dispatch) => {
+    const { userId, id, title, content } = noteData
+    const res = await csrfFetch(`/api/users/${userId}/notes/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title, content })
+    });
+
+    const patchNote = await res.json()
+    dispatch(updateNote(patchNote.note))
+    return patchNote
+}
 
 
 
@@ -78,9 +89,9 @@ const notesReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_NOTES:
             newState = { ...state }
-            newNotes = action.notes.reduce((account, note) => {
-                account[note.id] = note
-                return account;
+            newNotes = action.notes.reduce((all, note) => {
+                all[note.id] = note
+                return all;
             }, {})
             newState.notes = newNotes
             return newState;
@@ -94,6 +105,12 @@ const notesReducer = (state = initialState, action) => {
             newState = { ...state };
             newNotes = { ...state.notes };
             delete newNotes[action.note.id];
+            newState.notes = newNotes;
+            return newState;
+        case UPDATE_NOTE:
+            newState = { ...state };
+            newNotes = { ...state.notes }
+            newNotes[action.note.id] = action.note;
             newState.notes = newNotes;
             return newState;
         default:

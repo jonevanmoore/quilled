@@ -12,6 +12,7 @@ export default function IndieNotebook() {
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id
     const notebook = useSelector(state => state.notebooks.notebooks[notebookId]);
+
     const [notebookTitle, setNotebookTitle] = useState(notebook?.title)
 
     useEffect(() => {
@@ -45,7 +46,7 @@ export default function IndieNotebook() {
 
             <label>Title</label>
             <input
-                value={notebook?.title}
+                value={notebookTitle}
                 onChange={(e) => setNotebookTitle(e?.target.value)}
                 type="text"
             >

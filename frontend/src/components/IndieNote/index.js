@@ -15,6 +15,9 @@ export default function IndieNote() {
 
     const note = useSelector(state => state.notes.notes[noteId])
 
+    const [noteTitle, setNoteTitle] = useState(note?.title)
+    const [noteContent, setNoteContent] = useState(note?.content)
+
     useEffect(() => {
         dispatch(notesActions.fetchNotes(userId))
     }, [dispatch])
@@ -27,12 +30,36 @@ export default function IndieNote() {
         }))
     }
 
+    const editNote = () => {
+        dispatch(notesActions.editNote({
+            userId,
+            id: noteId,
+            title: noteTitle,
+            content: noteContent
+        }))
+    }
+
     return (
         <>
+            <title>{`Quilled - ${noteTitle}`}</title>
             <h2>Indie Note</h2>
             <h2>{note?.title}</h2>
             <h2>{note?.content}</h2>
             <button onClick={deleteNote}>DELETE</button>
+            <label>EDIT</label>
+            <input
+                type='text'
+                value={noteTitle}
+                onChange={(e) => setNoteTitle(e?.target.value)}
+            >
+            </input>
+            <input
+                type='text'
+                value={noteContent}
+                onChange={(e) => setNoteContent(e?.target.value)}
+            >
+            </input>
+            <button onClick={editNote}>UPDATE</button>
         </>
     )
 }

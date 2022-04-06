@@ -43,4 +43,25 @@ router.delete('/users/:userId(\\d+)/notes/:noteId(\\d+)', asyncHandler(async (re
     res.json({ note })
 }))
 
+router.put('/users/:userId(\\d+)/notes/:noteId(\\d+)', asyncHandler(async (req, res) => {
+    const { userId, noteId } = req.params
+    const { title, content } = req.body
+
+    const note = await Note.findOne({
+        where: {
+            id: noteId,
+            userId,
+        }
+    })
+
+    await note.update({
+        title,
+        content
+    })
+
+    await note.save()
+
+    res.json({ note })
+}))
+
 module.exports = router;
