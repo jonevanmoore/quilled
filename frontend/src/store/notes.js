@@ -52,6 +52,9 @@ export const createNote = (userId) => async (dispatch) => {
     return newNote.newNote.id
 }
 
+//DELETE NOTE
+
+
 
 
 const initialState = { notes: {} }

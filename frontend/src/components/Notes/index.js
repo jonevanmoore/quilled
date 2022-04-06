@@ -21,10 +21,10 @@ const Notes = () => {
     useEffect(() => {
         dispatch(notesActions.fetchNotes(userId))
         dispatch(notebooksActions.fetchNotebooks(userId))
-    }, [dispatch])
+    }, [dispatch, userId])
 
     const newNote = () => {
-        const newNote = dispatch(notesActions.createNote(userId))
+        dispatch(notesActions.createNote(userId))
     }
 
     return (
@@ -35,8 +35,10 @@ const Notes = () => {
             <ul>
                 {notesData.map((note) => (
                     <div key={note.id}>
-                        <li >{note.title}</li>
-                        <span>{note.content}</span>
+                        <Link to={`/notes/${note.id}`}>
+                            <li >{note.title}</li>
+                            <span>{note.content}</span>
+                        </Link>
                     </div>
                 ))}
             </ul>
