@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import Notebooks from './components/Notebooks';
 import IndieNotebook from './components/IndieNotebook';
 import Notes from './components/Notes';
+import IndieNote from './components/IndieNote';
 import PageNotFound from './components/PageNotFound';
 import Footer from './components/Footer';
 
@@ -52,6 +53,10 @@ function App() {
 
           <Route path='/notes' exact>
             {sessionUser ? <Notes /> : <Redirect to='/signup' />}
+          </Route>
+
+          <Route path='/notes/:noteId'>
+            {sessionUser ? <IndieNote /> : <Redirect to='/signup' />}
           </Route>
 
           <Route>

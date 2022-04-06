@@ -12,6 +12,11 @@ body {
 
 }
 
+#nav-el {
+    position: relative;
+    right: 87px;
+}
+
 #navlink {
     color: aliceblue;
 }

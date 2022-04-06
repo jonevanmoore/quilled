@@ -5,28 +5,24 @@ const CREATE_NOTEBOOK = '/users/CREATE_NOTEBOOK'
 const DELETE_NOTEBOOK = '/users/DELETE_NOTEBOOK'
 const UPDATE_NOTEBOOK = '/users/UPDATE_NOTEBOOK'
 
-//MANY
 export const getNotebooks = (notebooks) => {
     return {
         type: GET_NOTEBOOKS,
         notebooks,
     };
 }
-
 export const createNewNotebook = (newNotebook) => {
     return {
         type: CREATE_NOTEBOOK,
         newNotebook
     }
 }
-
 export const deleteNotebook = (notebook) => {
     return {
         type: DELETE_NOTEBOOK,
         notebook
     }
 }
-
 export const updateNotebook = (notebook) => {
     return {
         type: UPDATE_NOTEBOOK,
@@ -95,9 +91,9 @@ const notebooksReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_NOTEBOOKS:
             newState = { ...state }
-            newNotebooks = action.notebooks.reduce((acc, notebook) => {
-                acc[notebook.id] = notebook
-                return acc;
+            newNotebooks = action.notebooks.reduce((account, notebook) => {
+                account[notebook.id] = notebook
+                return account;
             }, {})
             newState.notebooks = newNotebooks
             return newState;
