@@ -1,0 +1,23 @@
+.note-div {
+    /* display: grid; */
+    display: inline-grid;
+    background-color: aliceblue;
+    border: 1px aliceblue solid;
+    margin: 5px;
+    width: 200px;
+    height: 200px;
+
+}
+
+/* .note-data {} */
+
+#title-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.timestamp {
+    position: relative;
+    top: 30px;
+    color: rgb(100, 105, 105);
+}

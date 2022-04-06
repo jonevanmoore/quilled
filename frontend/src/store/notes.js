@@ -11,10 +11,10 @@ export const getNotes = (notes) => {
         notes
     }
 }
-export const createNewNote = (note) => {
+export const createNewNote = (newNote) => {
     return {
         type: CREATE_NOTE,
-        note
+        newNote
     }
 }
 export const deleteNote = (note) => {
@@ -53,7 +53,30 @@ export const createNote = (userId) => async (dispatch) => {
 }
 
 //DELETE NOTE
+export const destroyNote = (noteData) => async (dispatch) => {
+    const { userId, id } = noteData;
 
+    const res = await csrfFetch(`/api/users/${userId}/notes/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ id })
+    });
+
+    const removeNote = await res.json()
+    dispatch(deleteNote(removeNote.note))
+    return removeNote
+}
+
+export const editNote = (noteData) => async (dispatch) => {
+    const { userId, id, title, content } = noteData
+    const res = await csrfFetch(`/api/users/${userId}/notes/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title, content })
+    });
+
+    const patchNote = await res.json()
+    dispatch(updateNote(patchNote.note))
+    return patchNote
+}
 
 
 
@@ -66,15 +89,29 @@ const notesReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_NOTES:
             newState = { ...state }
-            newNotes = action.notes.reduce((account, note) => {
-                account[note.id] = note
-                return account;
+            newNotes = action.notes.reduce((all, note) => {
+                all[note.id] = note
+                return all;
             }, {})
             newState.notes = newNotes
             return newState;
         case CREATE_NOTE:
             newState = { ...state };
-            newState[action.note.id] = action.note;
+            newNotes = { ...state.notes }
+            newNotes[action.newNote.id] = action.newNote;
+            newState.notes = newNotes;
+            return newState;
+        case DELETE_NOTE:
+            newState = { ...state };
+            newNotes = { ...state.notes };
+            delete newNotes[action.note.id];
+            newState.notes = newNotes;
+            return newState;
+        case UPDATE_NOTE:
+            newState = { ...state };
+            newNotes = { ...state.notes }
+            newNotes[action.note.id] = action.note;
+            newState.notes = newNotes;
             return newState;
         default:
             return state

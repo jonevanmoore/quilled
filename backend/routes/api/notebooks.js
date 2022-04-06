@@ -31,13 +31,13 @@ router.post('/users/:userId(\\d+)/notebooks', asyncHandler(async (req, res) => {
 
 //DELETE NOTEBOOK
 router.delete('/users/:userId(\\d+)/notebooks/:notebookId(\\d+)', asyncHandler(async (req, res) => {
-    const { userId } = req.params
-    const { id } = req.body
+    const { userId, notebookId } = req.params
+    // const { id } = req.body
 
     const notebook = await Notebook.findOne({
         where: {
             userId,
-            id,
+            id: notebookId
         }
     })
 

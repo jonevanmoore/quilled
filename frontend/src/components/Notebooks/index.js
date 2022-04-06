@@ -17,7 +17,7 @@ export default function Notebooks() {
 
     useEffect(() => {
         dispatch(notebooksActions.fetchNotebooks(userId))
-    }, [dispatch, userId])
+    }, [dispatch])
 
     const newNotebook = () => {
         dispatch(notebooksActions.createNotebook(userId))
@@ -27,12 +27,12 @@ export default function Notebooks() {
         <>
             <title>Quilled - My Notebooks</title>
             <h2>Notebooks</h2>
+            <button onClick={newNotebook}>CREATE NOTEBOOK</button>
             {nbData.map((notebook) => (
                 <div key={notebook.id}>
                     <Link to={`/notebooks/${notebook.id}`} className="link-text">{notebook.title}</Link>
                 </div>
             ))}
-            <button onClick={newNotebook}>CREATE NOTEBOOK</button>
         </>
     )
 }

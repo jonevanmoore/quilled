@@ -91,9 +91,9 @@ const notebooksReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_NOTEBOOKS:
             newState = { ...state }
-            newNotebooks = action.notebooks.reduce((account, notebook) => {
-                account[notebook.id] = notebook
-                return account;
+            newNotebooks = action.notebooks.reduce((all, notebook) => {
+                all[notebook.id] = notebook
+                return all;
             }, {})
             newState.notebooks = newNotebooks
             return newState;
