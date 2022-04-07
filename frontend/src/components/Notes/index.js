@@ -31,22 +31,27 @@ const Notes = () => {
     return (
         <>
             <title>Quilled - My Notes</title>
-            <h2>Notes</h2>
-            <button onClick={newNote}>CREATE NOTE</button>
-            {notesData.map((note) => (
-                <div key={note.id} className="note-div">
-                    <div >
-                        <Link to={`/notes/${note.id}`} className='note-data'>
+            <div className='top-container'>
+                <h2 id='notes-text'>Notes</h2>
+                <button onClick={newNote} className='create-note-btn'>CREATE NOTE</button>
+            </div>
+            <div className='notes-container'>
+
+                {notesData.map((note) => (
+                    <Link to={`/notes/${note.id}`} className='note-data'>
+                        <div key={note.id} className="note-div">
+
                             <div id="title-content">
                                 <span id='title'>{note.title}</span>
                                 <span id='content'>{note.content}</span>
                                 <span className='created-at timestamp'>{note.createdAt}</span>
                                 <span className='updated-at timestamp'>{note.updatedAt}</span>
                             </div>
-                        </Link>
-                    </div>
-                </div>
-            ))}
+
+                        </div>
+                    </Link>
+                ))}
+            </div>
         </>
     )
 }

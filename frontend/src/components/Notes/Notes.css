@@ -1,19 +1,75 @@
+.top-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#notes-text {
+    text-align: center;
+    color: aliceblue;
+    font-weight: lighter;
+}
+
+.create-note-btn {
+    width: 150px;
+    position: relative;
+    left: 115px;
+    border: none;
+    border-radius: 20px;
+    background-color: aliceblue;
+    color: rgb(19, 35, 54);
+    box-shadow: 0px 140px 32px -14px black;
+    margin-bottom: 5px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.create-note-btn:hover {
+    background-color: rgb(19, 35, 54);
+    color: rgb(231, 231, 231);
+}
+
+.notes-container {
+    text-align: center;
+}
+
 .note-div {
     /* display: grid; */
     display: inline-grid;
-    background-color: aliceblue;
-    border: 1px aliceblue solid;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px rgb(241, 241, 241) solid;
     margin: 5px;
     width: 200px;
     height: 200px;
-
+    transition: 0.3s;
 }
 
-/* .note-data {} */
+.note-div:hover {
+    /* position: absolute; */
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    background-color: aliceblue;
+    color: rgb(0, 0, 0);
+    border-radius: 2px;
+}
+
+.note-data {
+    text-decoration: none;
+}
 
 #title-content {
     display: flex;
     flex-direction: column;
+}
+
+#title {
+    margin-top: 10px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+#title:hover {
+    color: cadetblue;
 }
 
 .timestamp {

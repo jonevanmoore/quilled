@@ -60,7 +60,7 @@ function App() {
           </Route>
 
           <Route>
-            {sessionUser ? <PageNotFound /> : <Redirect to='/login' />}
+            {sessionUser ? <PageNotFound /> : <Redirect to='/signup' />}
           </Route>
         </Switch>
       )}
