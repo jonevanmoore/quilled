@@ -13,7 +13,6 @@
     font-weight: lighter;
     transition: 0.3s;
     padding-right: 2%;
-    border-bottom-left-radius: 10px;
     border: aliceblue 4px solid;
 }
 
@@ -133,9 +132,8 @@
 .form-container-sign-up {
     background-color: aliceblue;
     text-align: center;
-    padding-bottom: 3%;
+    padding-bottom: 4.1%;
     padding-right: 47%;
-    border-bottom-right-radius: 10px;
 
 }
 
@@ -175,7 +173,7 @@
     width: 250px;
     position: relative;
     top: 25px;
-    left: 50px;
+    left: 60px;
     color: aliceblue;
     border: 1px aliceblue solid;
     border-radius: 20px;
@@ -191,7 +189,7 @@
     width: 250px;
     position: relative;
     top: 25px;
-    left: 50px;
+    left: 60px;
     color: aliceblue;
     border: 1px aliceblue solid;
     border-radius: 20px;
