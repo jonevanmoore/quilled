@@ -32,8 +32,8 @@
     text-align: center;
 }
 
+
 .note-div {
-    /* display: grid; */
     display: inline-grid;
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px rgb(241, 241, 241) solid;
@@ -43,8 +43,8 @@
     transition: 0.3s;
 }
 
+
 .note-div:hover {
-    /* position: absolute; */
     width: 250px;
     height: 250px;
     text-align: center;
