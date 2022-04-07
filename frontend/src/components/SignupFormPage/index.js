@@ -157,7 +157,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li id={emailAvail} className='email-avail-text'>available</li>
+                        <li className='single-avail-text avail-text'><i class="fa-solid fa-circle-check" id={emailAvail}></i> available</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-user input-icon"></i>
@@ -171,8 +171,8 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li id={usernameAvail} className='avail-text'>available</li>
-                        <li id={usernameLength} className='length-text'>5 to 30 characters</li>
+                        <li className='avail-text username-auth'><i class="fa-solid fa-circle-check" id={usernameAvail}></i> available</li>
+                        <li className='avail-text username-auth'><i class="fa-solid fa-circle-check" id={usernameLength}></i> 5 to 30 characters</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-lock input-icon"></i>
@@ -186,7 +186,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li id={passwordVal}>min. 8 charcaters</li>
+                        <li className="avail-text pass-avail-text"><i class="fa-solid fa-circle-check" id={passwordVal}></i> min. 8 charcaters</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-unlock input-icon"></i>
@@ -200,7 +200,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li id={confirmVal}>matches password</li>
+                        <li className="avail-text pass-con-avail-text"><i class="fa-solid fa-circle-check" id={confirmVal}></i> matches password</li>
                     </ul>
                     <button
                         type="submit"

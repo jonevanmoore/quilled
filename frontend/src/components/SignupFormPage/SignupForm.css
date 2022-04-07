@@ -13,7 +13,6 @@
     font-weight: lighter;
     transition: 0.3s;
     padding-right: 2%;
-    border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border: aliceblue 4px solid;
 }
@@ -25,7 +24,7 @@
     width: 150px;
     height: 200px;
     position: relative;
-    top: 100px;
+    top: 50px;
     left: 100px;
 }
 
@@ -35,8 +34,8 @@
     color: aliceblue;
     font-family: 'Gothic A1', sans-serif;
     position: relative;
-    top: 80px;
-    left: 20px
+    top: 20px;
+    left: 30px
 }
 
 #welcome-back2 {
@@ -50,15 +49,15 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     position: relative;
-    top: 60px;
-    left: 20px;
+    top: 0px;
+    left: 10px;
 }
 
 .login-btn-link {
     font-size: 20px;
     color: aliceblue;
     position: relative;
-    top: 100px;
+    top: 40px;
     left: 90px;
     border: 1px aliceblue solid;
     border-radius: 20px;
@@ -95,8 +94,7 @@
     color: rgb(0, 150, 173);
     font-family: 'Gothic A1', sans-serif;
     position: relative;
-    top: 80px;
-    left: 350px
+    left: 370px
 }
 
 #create-account2 {
@@ -105,7 +103,7 @@
 
 .jon-links {
     position: relative;
-    top: 80px;
+    top: -20px;
     left: 330px;
 }
 
@@ -126,7 +124,7 @@
 
 .sign-up-reason {
     position: relative;
-    top: 130px;
+    top: 10px;
     left: 330px;
     color: gray;
     font-family: 'Open Sans', sans-serif;
@@ -135,9 +133,8 @@
 .form-container-sign-up {
     background-color: aliceblue;
     text-align: center;
-    padding-bottom: 20%;
+    padding-bottom: 3%;
     padding-right: 47%;
-    border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 
 }
@@ -148,7 +145,7 @@
     flex-direction: column;
     text-align: center;
     position: relative;
-    top: 110px;
+    top: -10px;
     left: 350px;
 }
 
@@ -185,7 +182,7 @@
     text-decoration: none;
     padding: 12px 60px 12px 60px;
     transition: 0.3s;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(0, 150, 173, 0.5);
 }
 
 .able-btn {
@@ -201,10 +198,10 @@
     text-decoration: none;
     padding: 12px 60px 12px 60px;
     transition: 0.3s;
-    background-color: rgb(26, 255, 0);
+    background-color: rgb(0, 150, 173);
 }
 
-.sign-up-btn:hover {
+.able-btn:hover {
     background-color: rgba(15, 51, 92, 1);
 }
 
@@ -213,10 +210,11 @@
 /* VALIDATORS */
 #invalid {
     color: gray;
+    opacity: 50%;
 }
 
 #valid {
-    color: rgb(0, 168, 0);
+    color: rgb(0, 192, 0);
 }
 
 .validators {
@@ -225,11 +223,37 @@
     justify-content: space-around;
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
-.email-avail-text {
+
+ul {
+    list-style-type: none;
+}
+
+.avail-text {
+    color: gray;
+}
+
+.single-avail-text {
     position: relative;
-    right: 50%;
+    right: 49%;
+}
+
+.username-auth {
+    position: relative;
+    right: 20%
+}
+
+.pass-avail-text {
+    position: relative;
+    right: 42%;
+}
+
+.pass-con-avail-text {
+    position: relative;
+    right: 40.5%;
 }
 
 /* RIGHT SIDE END */
