@@ -1,18 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
 import logo from '../static/images/quilled-logo.png';
+import * as usersActions from '../../store/users';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+
+    const users = useSelector(state => state.users.users)
+    const userObject = Object.values(users)
+
+    const usernameList = []
+    const emailList = []
+    userObject.forEach(user => {
+        usernameList.push(user.username)
+        emailList.push(user.email)
+    })
+
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
+
+    //VALIDATIONS
+    const [emailAvail, setEmailAvail] = useState('invalid')
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+    const [usernameAvail, setUsernameAvail] = useState('invalid')
+    const [usernameLength, setUsernameLength] = useState('invalid')
+    const [passwordVal, setPasswordVal] = useState('invalid')
+    const [confirmVal, setConfirmVal] = useState('invalid')
+    const [btnClass, setBtnClass] = useState('disabled-btn')
+    console.log(btnClass)
+
+    //USERNAME VALIDATION
+    useEffect(() => {
+        //EMAIL
+        if (!emailList.includes(email) && validateEmail(email)) {
+            setEmailAvail('valid')
+        } else {
+            setEmailAvail('invalid')
+        }
+
+        //USERNAME
+        if (!usernameList.includes(username)) {
+            setUsernameAvail('valid')
+        } else {
+            setUsernameAvail('invalid')
+        }
+        if (username.length > 5 && username.length < 30) {
+            setUsernameLength('valid')
+        } else {
+            setUsernameLength('invalid')
+            setUsernameAvail('invalid')
+        }
+
+        //PASSWORD
+        if (password.length > 7) {
+            setPasswordVal('valid')
+        } else {
+            setPasswordVal('invalid')
+        }
+
+        //CONFIRM
+        if (confirmPassword === password && confirmPassword.length > 0) {
+            setConfirmVal('valid')
+        } else {
+            setConfirmVal('invalid')
+        }
+
+        //BTN Disabled
+        if (!emailList.includes(email) && validateEmail(email) && !usernameList.includes(username) && username.length > 5 && username.length < 30 && password.length > 7 && confirmPassword === password && confirmPassword.length > 0) {
+            setBtnClass('able-btn')
+        } else {
+            setBtnClass('disabled-btn')
+        }
+
+    }, [username, email, password, confirmPassword])
+
+    useEffect(() => {
+        dispatch(usersActions.fetchUsers(users))
+    }, [dispatch])
 
     if (sessionUser) return <Redirect to="/" />;
 
@@ -31,6 +108,9 @@ function SignupFormPage() {
 
     return (
         <div className="signup-body">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto&display=swap');
+            </style>
             <title>Quilled - Sign Up</title>
             <div className="login-link-div">
                 <div id="logo-div">
@@ -76,6 +156,9 @@ function SignupFormPage() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
+                    <ul className="validators">
+                        <li id={emailAvail} className='email-avail-text'>available</li>
+                    </ul>
                     <label>
                         <i className="fa-solid fa-user input-icon"></i>
                     </label>
@@ -87,6 +170,10 @@ function SignupFormPage() {
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
+                    <ul className="validators">
+                        <li id={usernameAvail} className='avail-text'>available</li>
+                        <li id={usernameLength} className='length-text'>5 to 30 characters</li>
+                    </ul>
                     <label>
                         <i className="fa-solid fa-lock input-icon"></i>
                     </label>
@@ -98,6 +185,9 @@ function SignupFormPage() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <ul className="validators">
+                        <li id={passwordVal}>min. 8 charcaters</li>
+                    </ul>
                     <label>
                         <i className="fa-solid fa-unlock input-icon"></i>
                     </label>
@@ -109,8 +199,15 @@ function SignupFormPage() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
-
-                    <button type="submit" className="sign-up-btn">SIGN UP</button>
+                    <ul className="validators">
+                        <li id={confirmVal}>matches password</li>
+                    </ul>
+                    <button
+                        type="submit"
+                        className={btnClass}
+                        disabled={btnClass !== 'able-btn'}
+                    >
+                        SIGN UP</button>
                 </form>
             </div>
         </div>

@@ -33,7 +33,7 @@
     font-size: 30px;
     display: flex;
     color: aliceblue;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Gothic A1', sans-serif;
     position: relative;
     top: 80px;
     left: 20px
@@ -47,6 +47,7 @@
     text-align: center;
     font-size: 20px;
     color: aliceblue;
+    font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     position: relative;
     top: 60px;
@@ -64,6 +65,7 @@
     text-decoration: none;
     padding: 10px 60px 10px 60px;
     transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .login-btn-link:hover {
@@ -91,7 +93,7 @@
     font-size: 30px;
     display: flex;
     color: rgb(0, 150, 173);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Gothic A1', sans-serif;
     position: relative;
     top: 80px;
     left: 350px
@@ -127,6 +129,7 @@
     top: 130px;
     left: 330px;
     color: gray;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .form-container-sign-up {
@@ -169,8 +172,8 @@
     border: 1px solid rgb(0, 150, 173);
 }
 
-.sign-up-btn {
-    font-family: monospace;
+.disabled-btn {
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     width: 250px;
     position: relative;
@@ -182,11 +185,51 @@
     text-decoration: none;
     padding: 12px 60px 12px 60px;
     transition: 0.3s;
-    background-color: rgb(0, 150, 173);
+    background-color: rgb(255, 0, 0);
+}
+
+.able-btn {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    width: 250px;
+    position: relative;
+    top: 25px;
+    left: 50px;
+    color: aliceblue;
+    border: 1px aliceblue solid;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 12px 60px 12px 60px;
+    transition: 0.3s;
+    background-color: rgb(26, 255, 0);
 }
 
 .sign-up-btn:hover {
     background-color: rgba(15, 51, 92, 1);
+}
+
+
+
+/* VALIDATORS */
+#invalid {
+    color: gray;
+}
+
+#valid {
+    color: rgb(0, 168, 0);
+}
+
+.validators {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+
+.email-avail-text {
+    position: relative;
+    right: 50%;
 }
 
 /* RIGHT SIDE END */

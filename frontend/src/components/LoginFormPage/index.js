@@ -1,53 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link, useHistory } from 'react-router-dom';
 import './LoginForm.css'
 import logo from '../static/images/quilled-logo.png';
-import * as usersActions from '../../store/users'
 
 
 function LoginFormPage() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
-    const users = useSelector(state => state.users.users)
-    const userObject = Object.values(users)
-    const userList = []
-    userObject.forEach(user => {
-        userList.push(user.username)
-    })
-
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
-    const [usernameErrors, setUsernameErrors] = useState([])
-    const [usernameValid, setUsernameValid] = useState('')
     const history = useHistory()
 
-
-
-
-    //USER VALIDATION
-    // useEffect(() => {
-    //     const errors = []
-    //     if (userList.includes(credential)) {
-    //         errors.push('username is already taken')
-    //     } else if (credential.length > 30) {
-    //         errors.push('username cannot exceed 30 characters')
-    //     } else if (credential.length < 5) {
-    //         errors.push('username must be at least 5 characters long')
-    //     }
-    //     if (!userList.includes(credential && credential.length < 30 && credential.length > 5)) {
-    //         setUsernameValid('username is valid')
-    //     }
-    //     setUsernameErrors(errors)
-    // }, [userList, credential])
-
-
-    useEffect(() => {
-        dispatch(usersActions.fetchUsers(users))
-    }, [dispatch])
 
     if (sessionUser) return (
         <Redirect to="/" />
