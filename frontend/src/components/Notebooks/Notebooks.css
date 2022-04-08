@@ -1,3 +1,29 @@
-.link-text {
-    color: white;
+.notebooks-page-container {}
+
+#notebooks-text {
+    text-align: center;
+}
+
+.create-book-btn {
+    width: 150px;
+    position: relative;
+    left: 115px;
+    border: none;
+    border-radius: 20px;
+    background-color: aliceblue;
+    color: rgb(19, 35, 54);
+    box-shadow: 0px 140px 32px -14px black;
+    margin-bottom: 5px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.create-book-btn:hover {
+    background-color: rgb(19, 35, 54);
+    color: rgb(231, 231, 231);
+}
+
+.notebooks-page-squares {
+    text-align: center;
+
 }

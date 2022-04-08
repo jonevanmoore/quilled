@@ -6,9 +6,10 @@ footer {
     justify-content: space-around;
     padding-top: 5px;
     padding-bottom: 5px;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
     height: 2.5rem;
     border-top: aliceblue solid 0.5px;
 }

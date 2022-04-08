@@ -177,7 +177,7 @@ function SignupFormPage() {
                         <i className="fa-solid fa-lock input-icon"></i>
                     </label>
                     <input
-                        className="signup-input"
+                        className="signup-input pass-input"
                         placeholder="Password"
                         type="password"
                         value={password}
