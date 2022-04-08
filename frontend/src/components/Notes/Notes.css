@@ -1,12 +1,40 @@
 .top-container {
     display: flex;
     flex-direction: column;
+    font-family: 'Gothic A1', sans-serif;
 }
 
 #notes-text {
     text-align: center;
     color: aliceblue;
     font-weight: lighter;
+}
+
+.notes-page-squares {
+    display: grid-inline;
+    text-align: center;
+}
+
+.notes-page-link {
+    font-family: 'Gothic A1', sans-serif;
+    background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgba(255, 255, 255, 0.7) 8.3%, rgba(255, 255, 255, 0.7) 79.4%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-decoration: none;
+    display: inline-grid;
+
+}
+
+#note-title-text {
+    text-align: left;
+}
+
+#notebook-text {
+    text-align: left;
+}
+
+#unassigned {
+    text-align: left;
 }
 
 .create-note-btn {

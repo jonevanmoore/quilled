@@ -1,7 +1,10 @@
-.notebooks-page-container {}
+.notebooks-page-container {
+    font-family: 'Gothic A1', sans-serif;
+}
 
 #notebooks-text {
     text-align: center;
+    color: aliceblue;
 }
 
 .create-book-btn {
@@ -26,4 +29,12 @@
 .notebooks-page-squares {
     text-align: center;
 
+}
+
+.notebooks-link {
+    background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgb(0, 150, 173, 0.1) 8.3%, rgb(223, 239, 255) 79.4%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-decoration: none;
+    display: inline-grid;
 }

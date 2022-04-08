@@ -1,13 +1,49 @@
-.notebooks-notes-container {}
+h3 {
+    color: aliceblue;
+}
 
-.notebook-div {}
+#notebook-buttons {
+    display: flex;
+}
+
+#plus-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 100%;
+    color: #f0f8ff;
+    font-size: 30px;
+    padding-left: 10px;
+    font-weight: bolder;
+}
+
+.notebooks-notes-container {
+    font-family: 'Gothic A1', sans-serif;
+}
+
+#home-text {
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+}
+
+.notebook-div {
+    padding-right: 50px;
+    padding-left: 50px;
+}
 
 .notebooks-squares {
     overflow-x: scroll;
     display: flex;
-    width: 99.5%;
+    flex-direction: row-reverse;
+    width: 60%;
     border-right: 2px solid aliceblue;
     border-left: 2px solid aliceblue;
+    background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgb(0, 150, 173, 0.1) 8.3%, rgb(223, 239, 255) 79.4%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: 1px solid aliceblue;
+    width: 100%;
 }
 
 .notebook-link {
@@ -16,7 +52,7 @@
 }
 
 .notebook-link-div {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
     border: 1px rgb(241, 241, 241) solid;
     margin: 5px;
     width: 200px;
@@ -27,7 +63,7 @@
 
 
 .notebook-link-div:hover {
-    width: 250px;
+    width: 210px;
     background-color: aliceblue;
     color: rgb(0, 0, 0);
     border-radius: 2px;
@@ -42,26 +78,31 @@
 }
 
 .notes-div {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .note-squares {
+    background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgba(255, 255, 255, 0.7) 8.3%, rgb(20, 235, 235, 0.3) 79.4%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow-x: scroll;
     display: flex;
-    width: 99.5%;
-    border-right: 2px solid aliceblue;
-    border-left: 2px solid aliceblue;
+    flex-direction: row-reverse;
+    border: 1px solid aliceblue;
 }
 
 .note-link {
     text-decoration: none;
     display: inline-grid;
+
 }
 
 .note-link-div {
     display: inline-grid;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px rgb(241, 241, 241) solid;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px rgb(0, 150, 173) solid;
     margin: 5px;
     width: 200px;
     height: 200px;
@@ -69,10 +110,114 @@
 }
 
 .note-link-div:hover {
-    width: 250px;
+    width: 220px;
     background-color: aliceblue;
     color: rgb(0, 0, 0);
     border-radius: 2px;
     transform: scale(1.1);
     transform-origin: center
+}
+
+
+/* LETTERS */
+#title-text {
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    font-weight: bolder;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-top: 1px rgb(0, 150, 173) solid;
+    border-bottom: 1px rgb(0, 150, 173) solid;
+}
+
+#note-title-text {
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    font-weight: bolder;
+    padding: 5px;
+    background-color: rgba(198, 218, 255, 0.3);
+    border-top: 1px rgba(15, 51, 92, 1) solid;
+    border-bottom: 1px rgba(15, 51, 92, 1) solid;
+}
+
+#notebook-4-title-text {
+    overflow-x: scroll;
+    display: flex;
+    white-space: nowrap;
+    font-size: 20px;
+
+    padding-left: 5px;
+    color: rgb(0, 150, 173);
+}
+
+#unassigned {
+    color: rgb(0, 0, 0);
+    opacity: 50%;
+    padding-left: 5px;
+}
+
+#creation {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 20px;
+    color: black;
+    border-bottom: 1px solid rgb(61, 61, 61);
+    padding-left: 5px;
+}
+
+#note-creation {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 5px;
+    color: black;
+    border-bottom: 1px solid rgb(61, 61, 61);
+    padding-left: 5px;
+}
+
+#created-at-text,
+#updated-at-text {
+    font-size: 13px;
+    color: rgb(61, 61, 61);
+}
+
+#month-text,
+#update-text {
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#note-month-text,
+#note-update-text {
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#note-count-text {
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+    color: rgba(15, 51, 92, 1);
+}
+
+#content-text {
+    font-size: 11px;
+    margin-top: 3px;
+    color: rgb(0, 150, 173);
+}
+
+#notebook-text {
+    font-size: 12px;
+    color: black;
+    padding-left: 5px;
 }

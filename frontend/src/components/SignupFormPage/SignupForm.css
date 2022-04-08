@@ -162,8 +162,8 @@
 
 .input-icon {
     position: relative;
-    top: 28px;
-    right: 175px;
+    top: 30px;
+    right: 177px;
     color: rgb(94, 94, 94);
 }
 
@@ -217,8 +217,9 @@
 }
 
 .pass-input {
-    color: green;
+    color: rgb(0, 150, 173);
 }
+
 
 
 
@@ -226,10 +227,12 @@
 #invalid {
     color: gray;
     opacity: 50%;
+    transition: 0.3s;
 }
 
 #valid {
-    color: rgb(0, 192, 0);
+    color: rgb(0, 150, 173);
+    transition: 0.3s;
 }
 
 .validators {
@@ -242,6 +245,10 @@
     margin-bottom: 1px;
 }
 
+.user-vals {
+    display: flex;
+    flex-direction: column;
+}
 
 ul {
     list-style-type: none;
@@ -253,22 +260,23 @@ ul {
 
 .single-avail-text {
     position: relative;
-    right: 49%;
+    right: 44%;
 }
 
 .username-auth {
     position: relative;
-    right: 20%
+    right: 40%
 }
+
 
 .pass-avail-text {
     position: relative;
-    right: 42%;
+    right: 41%;
 }
 
 .pass-con-avail-text {
     position: relative;
-    right: 40.5%;
+    right: 39.5%;
 }
 
 /* RIGHT SIDE END */

@@ -156,7 +156,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li className='single-avail-text avail-text'><i class="fa-solid fa-circle-check" id={emailAvail}></i> available</li>
+                        <li className='single-avail-text avail-text'><i class="fa-solid fa-circle-check" id={emailAvail}></i> email available</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-user input-icon"></i>
@@ -169,9 +169,8 @@ function SignupFormPage() {
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
-                    <ul className="validators">
-                        <li className='avail-text username-auth'><i class="fa-solid fa-circle-check" id={usernameAvail}></i> available</li>
-                        <li className='avail-text username-auth'><i class="fa-solid fa-circle-check" id={usernameLength}></i> 5 to 30 characters</li>
+                    <ul className="validators user-vals">
+                        <li className='avail-text username-auth'><i class="fa-solid fa-circle-check" id={usernameAvail}></i> username available</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-lock input-icon"></i>
@@ -191,7 +190,7 @@ function SignupFormPage() {
                         <i className="fa-solid fa-unlock input-icon"></i>
                     </label>
                     <input
-                        className="signup-input"
+                        className="signup-input pass-input"
                         placeholder="Confirm Pasword"
                         type="password"
                         value={confirmPassword}
