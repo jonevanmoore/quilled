@@ -15,7 +15,7 @@ body {
 
 #nav-el {
     position: relative;
-    right: 87px;
+    right: 111px;
 }
 
 #navlink {
@@ -23,7 +23,7 @@ body {
 }
 
 .logo-letters {
-    width: 420px;
+    width: 320px;
     margin: 0 auto;
     margin-top: 5px;
     margin-bottom: 5px;

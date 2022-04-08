@@ -9,7 +9,6 @@ function Footer() {
         <>
 
             <footer>
-
                 <i className="fa-brands fa-js link-footer"></i>
                 <i className="fa-brands fa-react link-footer"></i>
                 <img src={reduxLogo} />
@@ -20,8 +19,8 @@ function Footer() {
                 <i className="fa-brands fa-git-alt link-footer"></i>
                 <img src={vsCodeLogo} />
                 <img src={herokuLogo} />
-                <i className="fa-brands fa-github link-footer"></i>
-                <i className="fa-brands fa-linkedin-in link-footer"></i>
+                <i className="fa-brands fa-github link-footer git-footer"></i>
+                <i className="fa-brands fa-linkedin-in link-footer linkedin-footer"></i>
             </footer>
         </>
     )
