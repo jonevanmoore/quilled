@@ -13,7 +13,8 @@ router.get('/users/:userId(\\d+)/notebooks', asyncHandler(async (req, res) => {
     const userId = req.params.userId;
 
     const notebooks = await Notebook.findAll({
-        where: { userId }
+        where: { userId },
+        order: [['updatedAt', 'DESC']]
     })
 
     return res.json({ notebooks })

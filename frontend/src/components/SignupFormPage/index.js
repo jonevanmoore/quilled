@@ -40,7 +40,6 @@ function SignupFormPage() {
     const [passwordVal, setPasswordVal] = useState('invalid')
     const [confirmVal, setConfirmVal] = useState('invalid')
     const [btnClass, setBtnClass] = useState('disabled-btn')
-    console.log(btnClass)
 
     //USERNAME VALIDATION
     useEffect(() => {

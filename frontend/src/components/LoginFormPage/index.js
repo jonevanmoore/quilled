@@ -43,6 +43,9 @@ function LoginFormPage() {
 
     return (
         <div >
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto&display=swap');
+            </style>
             <title>Quilled - Sign In</title>
 
             <form onSubmit={handleSubmit} className="form-container">

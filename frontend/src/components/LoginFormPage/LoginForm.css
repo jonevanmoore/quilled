@@ -2,7 +2,6 @@ body {
     background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgb(0, 150, 173) 8.3%, rgba(15, 51, 92, 1) 79.4%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: monospace;
     font-weight: lighter;
     transition: 0.3s;
 }
@@ -35,6 +34,19 @@ body {
     flex-direction: column;
     padding-top: 40px;
     padding-bottom: 70px;
+    animation: transitionIn 0.8s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 100px;
+        transform: rotateX(0deg);
+    }
 }
 
 .login-label-div,
@@ -56,6 +68,7 @@ body {
     font-size: 25px;
     position: relative;
     top: 10px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .input-tag {
@@ -82,6 +95,7 @@ body {
     color: rgb(231, 231, 231);
     box-shadow: 0px 140px 32px -14px black;
     transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .demo-btn {
@@ -93,6 +107,7 @@ body {
     background-color: rgb(23, 73, 131);
     color: rgb(231, 231, 231);
     transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .btn:hover {
@@ -112,7 +127,9 @@ body {
 .sign-up-text,
 .sign-up-link {
     font-size: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    bottom: 3px;
 }
 
 .sign-up-text {
