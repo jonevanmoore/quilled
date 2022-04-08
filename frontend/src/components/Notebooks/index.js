@@ -31,35 +31,64 @@ export default function Notebooks() {
 
     return (
         <>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto&display=swap');
+            </style>
             <div className='notebooks-page-container'>
 
                 <title>Quilled - My Notebooks</title>
                 <div className='top-notebook-container'>
                     <h2 id="notebooks-text">Notebooks</h2>
-                    <button onClick={newNotebook} className="create-book-btn">CREATE NOTEBOOK</button>
+                    <button onClick={newNotebook} className="create-book-btn">NEW NOTEBOOK</button>
                 </div>
-                <div className='notebooks-page-squares'>
-                    {nbData.map(notebook => {
-                        let noteCount = 0
-                        noteData.forEach(note => {
-                            if (note.notebookId === notebook.id) {
-                                noteCount += 1
+                <div>
+
+                    <div className='notebooks-page-squares'>
+                        {nbData.map(notebook => {
+                            let noteCount = 0
+                            noteData.forEach(note => {
+                                if (note.notebookId === notebook.id) {
+                                    noteCount += 1
+                                }
+                            })
+                            const createDate = notebook.createdAt.split('T')[0]
+                            const createMonth = createDate.split('-')[1]
+                            const createDay = createDate.split('-')[2]
+                            const createYear = createDate.split('-')[0]
+                            function dateInWords() {
+                                const date = new Date()
+                                date.setMonth(createMonth - 1)
+                                return `${date.toLocaleString('en-US', { month: 'long' })} ${createDay} ${createYear}`
                             }
-                        })
-                        return (
-                            <Link key={notebook.id} to={`/notebooks/${notebook.id}`} className="notebook-link">
-                                <div className="notebook-link-div">
-                                    <div className="notebook-data">
-                                        <span>{notebook.title}</span>
-                                        <span>{notebook.createdAt}</span>
-                                        <span>{notebook.updatedAt}</span>
-                                        <span>{`${noteCount} Notes`}</span>
+
+                            const updateDate = notebook.updatedAt.split('T')[0]
+                            const updateMonth = updateDate.split('-')[1]
+                            const updateDay = updateDate.split('-')[2]
+                            const updateYear = updateDate.split('-')[0]
+                            function updateInWords() {
+                                const date = new Date()
+                                date.setMonth(updateMonth - 1)
+                                return `${date.toLocaleString('en-US', { month: 'long' })} ${updateDay} ${updateYear}`
+                            }
+                            return (
+                                <Link key={notebook.id} to={`/notebooks/${notebook.id}`} className="notebooks-link">
+                                    <div className="notebook-link-div">
+                                        <div className="notebook-data">
+                                            <span id="title-text">{notebook.title}</span>
+                                            <div id="creation">
+                                                <span id="created-at-text">Created at:</span>
+                                                <span id="month-text">{dateInWords(createMonth)}</span>
+                                                <span id="updated-at-text">Updated at:</span>
+                                                <span id="update-text">{updateInWords(updateMonth)}</span>
+                                            </div>
+                                            <span id="note-count-text">{`${noteCount} Notes`}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        )
-                    })
-                    }
+                                </Link>
+                            )
+                        })
+                        }
+                    </div>
                 </div>
             </div>
         </>
