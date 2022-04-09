@@ -44,9 +44,10 @@ router.delete('/users/:userId(\\d+)/notes/:noteId(\\d+)', asyncHandler(async (re
     res.json({ note })
 }))
 
+//EDIT NOTE
 router.put('/users/:userId(\\d+)/notes/:noteId(\\d+)', asyncHandler(async (req, res) => {
     const { userId, noteId } = req.params
-    const { title, content } = req.body
+    const { title, content, notebookId } = req.body
 
     const note = await Note.findOne({
         where: {
@@ -55,9 +56,12 @@ router.put('/users/:userId(\\d+)/notes/:noteId(\\d+)', asyncHandler(async (req, 
         }
     })
 
+    const newNbId = notebookId || null
+
     await note.update({
         title,
-        content
+        content,
+        notebookId: newNbId
     })
 
     await note.save()

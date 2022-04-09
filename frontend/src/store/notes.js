@@ -66,11 +66,12 @@ export const destroyNote = (noteData) => async (dispatch) => {
     return removeNote
 }
 
+//EDIT NOTE
 export const editNote = (noteData) => async (dispatch) => {
-    const { userId, id, title, content } = noteData
+    const { userId, id, title, content, notebookId } = noteData
     const res = await csrfFetch(`/api/users/${userId}/notes/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({ title, content })
+        body: JSON.stringify({ title, content, notebookId })
     });
 
     const patchNote = await res.json()

@@ -38,7 +38,7 @@ function Navigation({ isLoaded }) {
                     </div>
                     <div id='stats'>
                         <span>{`${nbAmount} notebooks`}</span>
-                        <span>{`${noteAmount} notes`}</span>
+                        <span id='note-span'>{`${noteAmount} notes`}</span>
                     </div>
                 </div>
                 <div className='nav-links' id='nav-el'>
