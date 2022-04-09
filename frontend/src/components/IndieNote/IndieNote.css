@@ -1,0 +1,29 @@
+.indie-note-body {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.read-edit-btns>* {
+    border: 2px solid rgb(0, 150, 173);
+    font-size: 17px;
+}
+
+.read-btn {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.edit-btn {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.color {
+    color: aliceblue;
+    background-color: rgb(0, 150, 173);
+}
+
+.no-color {
+    background-color: aliceblue;
+    color: rgb(0, 150, 173);
+}
