@@ -23,8 +23,7 @@ export default function IndieNote() {
     const [noteTitle, setNoteTitle] = useState(note?.title)
     const [noteContent, setNoteContent] = useState(note?.content)
     const [notebookId, setNoteBookId] = useState(note?.notebookId || null)
-    const [readBtnColor, setReadBtnColor] = useState('color')
-    const [editBtnColor, setEditBtnColor] = useState('no-color')
+
 
     useEffect(() => {
         dispatch(notesActions.fetchNotes(userId))
@@ -39,6 +38,49 @@ export default function IndieNote() {
         }))
     }
 
+
+    const noteCreateDate = note?.createdAt.split('T')[0]
+    const noteCreateMonth = noteCreateDate?.split('-')[1]
+    const noteCreateDay = noteCreateDate?.split('-')[2]
+    const noteCreateYear = noteCreateDate?.split('-')[0]
+    function dateInWords() {
+        const date = new Date()
+        date?.setMonth(noteCreateMonth - 1)
+        return `${date.toLocaleString('en-US', { month: 'long' })} ${noteCreateDay} ${noteCreateYear}`
+    }
+    const noteUpCreateDate = note?.updatedAt.split('T')[0]
+    const noteUpCreateMonth = noteUpCreateDate?.split('-')[1]
+    const noteUpCreateDay = noteUpCreateDate?.split('-')[2]
+    const noteUpCreateYear = noteUpCreateDate?.split('-')[0]
+    function dateUpInWords() {
+        const date = new Date()
+        date?.setMonth(noteUpCreateMonth - 1)
+        return `${date.toLocaleString('en-US', { month: 'long' })} ${noteUpCreateDay} ${noteUpCreateYear}`
+    }
+
+
+
+    const readDisplayed = () => {
+        setReadDisplay('isDisplayed')
+        setEditDisplay('notDisplayed')
+        setReadBtnColor('color')
+        setEditBtnColor('no-color')
+    }
+    const editDisplayed = () => {
+        setEditDisplay('isDisplayed')
+        setReadDisplay('notDisplayed')
+        setEditBtnColor('color')
+        setReadBtnColor('no-color')
+    }
+
+    const [readBtnColor, setReadBtnColor] = useState('color')
+    const [editBtnColor, setEditBtnColor] = useState('no-color')
+
+    const [readDisplay, setReadDisplay] = useState('isDisplayed')
+    const [editDisplay, setEditDisplay] = useState('notDisplayed')
+
+
+
     const editNote = () => {
         dispatch(notesActions.editNote({
             userId,
@@ -47,6 +89,8 @@ export default function IndieNote() {
             content: noteContent,
             notebookId: notebookId
         }))
+
+        readDisplayed()
     }
 
     return (
@@ -54,40 +98,77 @@ export default function IndieNote() {
             <title>{`Quilled - ${noteTitle}`}</title>
             <div className='indie-note-body'>
                 <div className='read-edit-btns'>
-                    <button className={`${readBtnColor} read-btn`}>Read</button>
-                    <button className={`${editBtnColor} edit-btn`}>Edit</button>
+                    <button className={`${readBtnColor} read-btn`} onClick={readDisplayed}>Read</button>
+                    <button className={`${editBtnColor} edit-btn`} onClick={editDisplayed}>Edit</button>
                 </div>
+                <div className={`read-note-div ${readDisplay}`}>
+                    <div id='lean-left'>
+                        <h2 className='note-title'>{note?.title}</h2>
+                        <div className='created-updated-indie-note-div'>
+                            <span id='create-updated-note-indie'>Created on:</span>
+                            <span className='indieNoteCreated'>{dateInWords(noteCreateMonth)}</span>
+                            <span id='create-updated-note-indie'>Updated on:</span>
+                            <span className='indieNoteCreated'>{dateUpInWords(noteUpCreateMonth)}</span>
+                            <span id='divider'> | </span>
+                            <span id='create-updated-note-indie'> Notebook: </span>
+                            {nbData.map(notebook => {
+                                let notebookText;
+                                if (notebook.id === note.notebookId) {
+                                    notebookText = notebook.title
+                                }
+                                return (
+                                    <span className='indieNoteCreated'>{notebookText}</span>
+                                )
+                            })}
 
-                <h2>{note?.title}</h2>
-                <h2>{note?.content}</h2>
-                <button onClick={deleteNote}>DELETE</button>
-                <div className='edit-note-div'>
+                        </div>
+                        <div id='content-span'>
+                            <span>{note?.content}</span>
+                        </div>
+                    </div>
 
-                    <input
-                        type='text'
-                        value={noteTitle}
-                        onChange={(e) => setNoteTitle(e?.target.value)}
-                    >
-                    </input>
-                    <textarea
-                        type='text'
-                        value={noteContent}
-                        onChange={(e) => setNoteContent(e?.target.value)}
-                    >
-                    </textarea>
-                    <select
-                        name='notebookId'
-                        value={notebookId}
-                        onChange={(e) => setNoteBookId(e?.target.value)}
-                    >
-                        <option value={0}>None</option>
-                        {nbData.map(notebook => {
-                            return (
-                                <option key={notebook?.id} value={notebook?.id}>{notebook?.title}</option>
-                            )
-                        })}
-                    </select>
-                    <button onClick={editNote}>UPDATE</button>
+                </div>
+                <div className={`${editDisplay}`}>
+                    <div className='edit-note-div'>
+
+                        <div className='note-inputs'>
+                            <h3 id='edit-texts'>Title</h3>
+                            <input
+                                type='text'
+                                value={noteTitle}
+                                onChange={(e) => setNoteTitle(e?.target.value)}
+                                className='note-title-input'
+                            >
+                            </input>
+                            <h3 id='edit-texts'>Notebook</h3>
+                            <select
+                                name='notebookId'
+                                value={notebookId}
+                                onChange={(e) => setNoteBookId(e?.target.value)}
+                                className='select-notebook'
+                            >
+                                {/* <option value={0}>None</option> */}
+                                {nbData.map(notebook => {
+                                    return (
+                                        <option key={notebook?.id} value={notebook?.id || 0}>{notebook?.title}</option>
+                                    )
+                                })}
+                            </select>
+                            <h3 id='edit-texts'>Content</h3>
+                            <textarea
+                                type='text'
+                                value={noteContent}
+                                onChange={(e) => setNoteContent(e?.target.value)}
+                                className='note-content-input'
+                            >
+                            </textarea>
+                            <div className='edit-btns'>
+                                <button onClick={deleteNote} id='del-can'>DELETE</button>
+                                <button onClick={readDisplayed} id='del-can'>CANCEL</button>
+                                <button onClick={editNote} id='up-btn'>UPDATE</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

@@ -1,6 +1,23 @@
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 100px;
+        transform: rotateX(0deg);
+    }
+}
+
 .indieNotebookContainer {
     text-align: center;
     font-family: 'Gothic A1', sans-serif;
+    animation: transitionIn 0.8s;
+}
+
+.indieNotebookTitle {
+    animation: transitionIn 0.8s;
 }
 
 .del-edit-btns {
@@ -47,16 +64,12 @@
     height: 30px;
     width: 43%;
     margin-top: 13.8px;
-    transition: 0.5s;
+    animation: transitionIn 0.8s;
 }
 
 .indieTop {
     border-bottom: 1px solid aliceblue;
     padding-bottom: 10px;
-}
-
-.indieNotebookTitle {
-    position: relative;
 }
 
 .created-updated-indie-div {

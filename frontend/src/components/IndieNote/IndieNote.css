@@ -1,11 +1,28 @@
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 100px;
+        transform: rotateX(0deg);
+    }
+}
+
 .indie-note-body {
     text-align: center;
     margin-top: 80px;
+    padding-right: 100px;
+    padding-left: 100px;
+    font-family: 'Gothic A1', sans-serif;
+    animation: transitionIn 0.8s;
 }
 
 .read-edit-btns>* {
-    border: 2px solid rgb(0, 150, 173);
+    border: 3px solid #0096ad;
     font-size: 17px;
+    font-family: 'Gothic A1', sans-serif;
 }
 
 .read-btn {
@@ -24,6 +41,138 @@
 }
 
 .no-color {
+    background-color: aliceblue;
+    color: rgb(0, 150, 173);
+    transition: 0.3s;
+}
+
+.no-color:hover {
+    background-color: rgb(243, 243, 243)
+}
+
+.no-color:active {
+    background-color: rgb(0, 89, 102);
+    color: aliceblue;
+}
+
+.read-note-div {
+    animation: transitionIn 0.8s;
+}
+
+.note-title {
+    color: rgb(0, 150, 173);
+    font-family: 'Gothic A1', sans-serif;
+    padding-right: 50px;
+    padding-left: 50px;
+    position: relative;
+    top: 10px;
+}
+
+#lean-left {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.created-updated-indie-note-div {
+    display: flex;
+    justify-content: left;
+    position: relative;
+    top: 8px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+#divider {
+    padding-left: 2px;
+    padding-right: 5px;
+}
+
+#create-updated-note-indie {
+    color: rgb(80, 80, 80);
+    font-size: 12px;
+}
+
+.indieNoteCreated {
+    color: rgb(0, 150, 173);
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 5px;
+}
+
+#content-span {
+    border-top: 1px solid black;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.note-inputs {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.note-inputs>* {
+    height: 20px;
+    margin-bottom: 5px;
+
+}
+
+/* EDIT */
+.edit-note-div {
+    animation: transitionIn 0.8s;
+}
+
+
+#edit-texts {
+    text-align: left;
+    margin: 0;
+    font-size: 14px;
+}
+
+.note-title-input {
+    height: 25px;
+    width: 40%;
+}
+
+.select-notebook {
+    width: 40%;
+}
+
+.note-content-input {
+    width: 100%;
+    height: 300px;
+}
+
+.edit-btns {
+    text-align: left;
+}
+
+#del-can {
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+#del-can:hover {
+    text-decoration: underline;
+}
+
+#up-btn {
+    background-color: rgb(0, 150, 173);
+    border-radius: 20px;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+    transition: 0.3s;
+}
+
+#up-btn:hover {
     background-color: aliceblue;
     color: rgb(0, 150, 173);
 }

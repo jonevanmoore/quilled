@@ -9,7 +9,8 @@ body {
     justify-content: space-evenly;
     border-bottom: 0.1px solid aliceblue;
     box-shadow: 0px -30px 100px 0px rgb(59, 59, 59);
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
 
 }
 
@@ -24,9 +25,12 @@ body {
 
 .user-info>* {
     font-size: 14px;
+    margin-bottom: 2px;
 }
 
+
 #stats {
+    margin-top: 3px;
     font-family: 'Gothic A1', sans-serif;
     color: aliceblue;
     display: flex;
@@ -44,6 +48,13 @@ body {
 
 #navlink {
     color: aliceblue;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.3s;
+}
+
+#navlink:hover {
+    color: rgb(0, 150, 173);
 }
 
 .logo-letters {

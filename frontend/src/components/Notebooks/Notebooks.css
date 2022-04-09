@@ -1,5 +1,18 @@
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 100px;
+        transform: rotateX(0deg);
+    }
+}
+
 .notebooks-page-container {
     font-family: 'Gothic A1', sans-serif;
+    animation: transitionIn 0.8s;
 }
 
 #notebooks-text {
@@ -37,4 +50,5 @@
     background-attachment: fixed;
     text-decoration: none;
     display: inline-grid;
+    animation: transitionIn 0.8s;
 }
