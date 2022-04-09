@@ -1,6 +1,8 @@
 # Quilled
 This is a clone of [Evernote](https://evernote.com/). \
-Users can sign up to create notes as well as notebooks to save any kind of information they may need.
+Logged in users can perform the following actions:
+* Add/View/Edit/Delete Notes
+* Add/View/Edit/Delete Notebooks
 
 # Live Site
 [Quilled](https://quilled.herokuapp.com/signup)
