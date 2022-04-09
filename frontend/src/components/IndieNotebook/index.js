@@ -26,13 +26,6 @@ export default function IndieNotebook() {
         dispatch(notesActions.fetchNotes(userId))
     }, [dispatch])
 
-    const deleteNotebook = () => {
-        history.push('/notebooks')
-        dispatch(notebooksActions.destroyNotebook({
-            userId,
-            id: notebookId
-        }))
-    }
 
     const notebookCreateDate = notebook?.createdAt.split('T')[0]
     const notebookCreateMonth = notebookCreateDate?.split('-')[1]
@@ -51,6 +44,25 @@ export default function IndieNotebook() {
         const date = new Date()
         date?.setMonth(notebookUpCreateMonth - 1)
         return `${date.toLocaleString('en-US', { month: 'long' })} ${notebookUpCreateDay} ${notebookUpCreateYear}`
+    }
+
+
+    const deleteNotebook = () => {
+        //DELETE ASSOCIATED NOTES AS WELL
+        noteData.map(note => {
+            const noteId = note.id;
+            if (note.notebookId === notebook.id) {
+                dispatch(notesActions.destroyNote({
+                    userId,
+                    id: noteId
+                }))
+            }
+        })
+        dispatch(notebooksActions.destroyNotebook({
+            userId,
+            id: notebookId
+        }))
+        history.push('/')
     }
 
     const editNotebook = () => {
