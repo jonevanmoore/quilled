@@ -1,0 +1,13 @@
+.indieNotebookContainer {
+    text-align: center;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+.indieTop {
+    border-bottom: 1px solid aliceblue;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: aliceblue;
+}
