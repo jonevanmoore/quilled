@@ -30,6 +30,7 @@ export default function IndieNote() {
         dispatch(notebooksActions.fetchNotebooks(userId))
     }, [dispatch])
 
+
     const deleteNote = () => {
         history.push('/notes')
         dispatch(notesActions.destroyNote({
@@ -81,6 +82,7 @@ export default function IndieNote() {
 
 
 
+
     const editNote = () => {
         dispatch(notesActions.editNote({
             userId,
@@ -92,6 +94,7 @@ export default function IndieNote() {
 
         readDisplayed()
     }
+
 
     return (
         <>
@@ -113,17 +116,22 @@ export default function IndieNote() {
                             <span id='create-updated-note-indie'> Notebook: </span>
                             {nbData.map(notebook => {
                                 let notebookText;
-                                if (notebook.id === note.notebookId) {
-                                    notebookText = notebook.title
+                                if (notebook?.id === note?.notebookId) {
+                                    notebookText = notebook?.title
                                 }
                                 return (
-                                    <span className='indieNoteCreated'>{notebookText}</span>
+                                    <Link className='indieNoteCreatedLink' to={`/notebooks/${notebook?.id}`}>{notebookText}</Link>
                                 )
                             })}
 
                         </div>
                         <div id='content-span'>
-                            <span>{note?.content}</span>
+                            {note?.content.split('\n').map((par, i) => {
+                                return (
+                                    <p key={i}>{par}</p>
+                                )
+                            })}
+                            {/* <span>{note?.content}</span> */}
                         </div>
                     </div>
 
@@ -132,32 +140,29 @@ export default function IndieNote() {
                     <div className='edit-note-div'>
 
                         <div className='note-inputs'>
-                            <h3 id='edit-texts'>Title</h3>
-                            <input
-                                type='text'
-                                value={noteTitle}
-                                onChange={(e) => setNoteTitle(e?.target.value)}
-                                className='note-title-input'
-                            >
-                            </input>
-                            <h3 id='edit-texts'>Notebook</h3>
                             <select
                                 name='notebookId'
-                                value={notebookId}
+                                value={note?.notebookId}
                                 onChange={(e) => setNoteBookId(e?.target.value)}
                                 className='select-notebook'
                             >
                                 {/* <option value={0}>None</option> */}
                                 {nbData.map(notebook => {
                                     return (
-                                        <option key={notebook?.id} value={notebook?.id || 0}>{notebook?.title}</option>
+                                        <option key={notebook?.id} value={notebook?.id || 1}>{notebook?.title}</option>
                                     )
                                 })}
                             </select>
-                            <h3 id='edit-texts'>Content</h3>
+                            <input
+                                type='text'
+                                value={note?.title}
+                                onChange={(e) => setNoteTitle(e?.target.value)}
+                                className='note-title-input'
+                            >
+                            </input>
                             <textarea
                                 type='text'
-                                value={noteContent}
+                                value={note?.content}
                                 onChange={(e) => setNoteContent(e?.target.value)}
                                 className='note-content-input'
                             >
