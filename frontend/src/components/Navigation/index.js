@@ -1,24 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import logo from '../static/images/quilled.png';
 import './Navigation.css';
+import * as notebooksAction from '../../store/notebooks'
+import * as notesAction from '../../store/notes'
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
+    const notebooks = useSelector(state => state.notebooks.notebooks);
+    const nbAmount = Object.values(notebooks).length
+
+    const notes = useSelector(state => state.notes.notes)
+    const noteAmount = Object.values(notes).length
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (sessionUser) {
+            dispatch(notebooksAction.fetchNotebooks(sessionUser?.id))
+            dispatch(notesAction.fetchNotes(sessionUser?.id))
+        }
+    }, [dispatch])
+
 
     let sessionLinks;
     let navGreet;
     if (sessionUser) {
-        navGreet = `Welcome, ${sessionUser.username}`
+
         return (
             <div className="nav-div">
                 <div className='user-stats' id='nav-el'>
-                    <span >{navGreet}</span>
+                    <div className='user-info'>
+                        <span>{sessionUser?.username}</span>
+                        <span>{sessionUser?.email}</span>
+                    </div>
                     <div id='stats'>
-                        <span>4 notebooks</span>
-                        <span>20 notes</span>
+                        <span>{`${nbAmount} notebooks`}</span>
+                        <span>{`${noteAmount} notes`}</span>
                     </div>
                 </div>
                 <div className='nav-links' id='nav-el'>

@@ -107,9 +107,7 @@ function SignupFormPage() {
 
     return (
         <div className="signup-body">
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto&display=swap');
-            </style>
+
             <title>Quilled - Sign Up</title>
             <div className="login-link-div">
                 <div id="logo-div">
@@ -156,7 +154,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li className='single-avail-text avail-text'><i class="fa-solid fa-circle-check" id={emailAvail}></i> email available</li>
+                        <li className='single-avail-text avail-text'><i className="fa-solid fa-circle-check" id={emailAvail}></i> email available</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-user input-icon"></i>
@@ -170,7 +168,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators user-vals">
-                        <li className='avail-text username-auth'><i class="fa-solid fa-circle-check" id={usernameAvail}></i> username available</li>
+                        <li className='avail-text username-auth'><i className="fa-solid fa-circle-check" id={usernameAvail}></i> username available</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-lock input-icon"></i>
@@ -184,7 +182,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li className="avail-text pass-avail-text"><i class="fa-solid fa-circle-check" id={passwordVal}></i> min. 8 charcaters</li>
+                        <li className="avail-text pass-avail-text"><i className="fa-solid fa-circle-check" id={passwordVal}></i> min. 8 charcaters</li>
                     </ul>
                     <label>
                         <i className="fa-solid fa-unlock input-icon"></i>
@@ -198,7 +196,7 @@ function SignupFormPage() {
                         required
                     />
                     <ul className="validators">
-                        <li className="avail-text pass-con-avail-text"><i class="fa-solid fa-circle-check" id={confirmVal}></i> matches password</li>
+                        <li className="avail-text pass-con-avail-text"><i className="fa-solid fa-circle-check" id={confirmVal}></i> matches password</li>
                     </ul>
                     <button
                         type="submit"

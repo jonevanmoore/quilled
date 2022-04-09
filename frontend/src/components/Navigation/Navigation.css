@@ -13,6 +13,30 @@ body {
 
 }
 
+.user-info {
+    font-family: 'Gothic A1', sans-serif;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid aliceblue;
+}
+
+
+.user-info>* {
+    font-size: 14px;
+}
+
+#stats {
+    font-family: 'Gothic A1', sans-serif;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+}
+
+#stats>* {
+    font-size: 14px;
+}
+
 #nav-el {
     position: relative;
     right: 111px;
@@ -35,10 +59,4 @@ body {
 
 .user-stats {
     text-align: start;
-}
-
-#stats {
-    display: flex;
-    flex-direction: column;
-
 }

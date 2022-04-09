@@ -12,11 +12,24 @@
     background-color: transparent;
     border: none;
     color: aliceblue;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .del-edit-btns>*:hover {
     text-decoration: underline;
+    color: rgb(2, 184, 212)
+}
+
+.up-cancel-btns>* {
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    transition: 0.3s;
+}
+
+.up-cancel-btns>*:hover {
+    text-decoration: underline;
+    color: rgb(2, 184, 212)
 }
 
 /* DISPLAYS */
@@ -28,8 +41,15 @@
     display: none;
 }
 
-
 /* DISPLAYS */
+
+.title-input {
+    height: 30px;
+    width: 43%;
+    margin-top: 13.8px;
+    transition: 0.5s;
+}
+
 .indieTop {
     border-bottom: 1px solid aliceblue;
     padding-bottom: 10px;

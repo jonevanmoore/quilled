@@ -34,14 +34,6 @@ export default function IndieNotebook() {
         }))
     }
 
-    const editNotebook = () => {
-        history.push(`/notebooks/${notebook.id}`)
-        dispatch(notebooksActions.editNotebook({
-            userId,
-            notebookId: notebook.id,
-            title: notebookTitle,
-        }))
-    }
     const notebookCreateDate = notebook?.createdAt.split('T')[0]
     const notebookCreateMonth = notebookCreateDate?.split('-')[1]
     const notebookCreateDay = notebookCreateDate?.split('-')[2]
@@ -61,28 +53,29 @@ export default function IndieNotebook() {
         return `${date.toLocaleString('en-US', { month: 'long' })} ${notebookUpCreateDay} ${notebookUpCreateYear}`
     }
 
-    let titleDisplay = 'isDisplayed';
-    let editDisplay = 'notDisplayed';
+    const editNotebook = () => {
+        history.push(`/notebooks/${notebook.id}`)
+        dispatch(notebooksActions.editNotebook({
+            userId,
+            notebookId: notebook.id,
+            title: notebookTitle,
+        }))
+        titleDisplayed()
+    }
+    const [titleDisplay, setTitleDisplay] = useState('isDisplayed')
+    const [editDisplay, setEditDisplay] = useState('notDisplayed')
+
     const titleDisplayed = () => {
-        titleDisplay = 'isDisplayed'
-        editDisplay = 'notDisplayed'
+        setTitleDisplay('isDisplayed')
+        setEditDisplay('notDisplayed')
     }
     const editDisplayed = () => {
-        editDisplay = 'isDisplayed'
-        titleDisplay = 'notDisplayed'
-        return
+        setEditDisplay('isDisplayed')
+        setTitleDisplay('notDisplayed')
     }
-    const editBtn = document.createElement('button')
-    editBtn.addEventListener('click', (e) => {
-        editDisplayed()
-        console.log(titleDisplay)
-    })
 
     return (
         <>
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto&display=swap');
-            </style>
             <title>{`Quilled - ${notebook?.title}`}</title>
 
             <div className='indieNotebookContainer'>
@@ -95,15 +88,17 @@ export default function IndieNotebook() {
                         <h2 className='indieNotebookTitle'>{notebook?.title}</h2>
                     </div>
                     <div className={editDisplay}>
-                        <label>Title</label>
                         <input
                             value={notebookTitle}
                             onChange={(e) => setNotebookTitle(e?.target.value)}
                             type="text"
+                            className='title-input'
                         >
                         </input>
-                        <button onClick={editNotebook}>UPDATE</button>
-                        <button onClick={titleDisplayed}>CANCEL</button>
+                        <div className='up-cancel-btns'>
+                            <button onClick={editNotebook}>UPDATE</button>
+                            <button onClick={titleDisplayed}>CANCEL</button>
+                        </div>
                     </div>
                     <div className='created-updated-indie-div'>
                         <span id='create-updated-indie'>Created on:</span>
