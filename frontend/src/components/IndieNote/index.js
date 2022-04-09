@@ -142,27 +142,27 @@ export default function IndieNote() {
                         <div className='note-inputs'>
                             <select
                                 name='notebookId'
-                                value={note?.notebookId}
+                                value={notebookId}
                                 onChange={(e) => setNoteBookId(e?.target.value)}
                                 className='select-notebook'
                             >
                                 {/* <option value={0}>None</option> */}
                                 {nbData.map(notebook => {
                                     return (
-                                        <option key={notebook?.id} value={notebook?.id || 1}>{notebook?.title}</option>
+                                        <option key={notebook?.id} value={notebook?.id || 0}>{notebook?.title}</option>
                                     )
                                 })}
                             </select>
                             <input
                                 type='text'
-                                value={note?.title}
+                                value={noteTitle}
                                 onChange={(e) => setNoteTitle(e?.target.value)}
                                 className='note-title-input'
                             >
                             </input>
                             <textarea
                                 type='text'
-                                value={note?.content}
+                                value={noteContent}
                                 onChange={(e) => setNoteContent(e?.target.value)}
                                 className='note-content-input'
                             >
