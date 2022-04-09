@@ -92,9 +92,9 @@ const Notes = () => {
                                             <span id="content-text">{contentTruncate}</span>
                                         </div>
                                         <div id="note-creation">
-                                            <span id="created-at-text">Created at:</span>
+                                            <span id="created-at-text">Created on:</span>
                                             <span id="note-month-text">{dateInWords(createMonth)}</span>
-                                            <span id="updated-at-text">Updated at:</span>
+                                            <span id="updated-at-text">Updated on:</span>
                                             <span id="note-update-text">{updateInWords(updateMonth)}</span>
 
                                         </div>

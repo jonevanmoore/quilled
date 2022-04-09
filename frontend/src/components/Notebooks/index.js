@@ -73,9 +73,9 @@ export default function Notebooks() {
                                         <div className="notebook-data">
                                             <span id="title-text">{notebook.title}</span>
                                             <div id="creation">
-                                                <span id="created-at-text">Created at:</span>
+                                                <span id="created-at-text">Created on:</span>
                                                 <span id="month-text">{dateInWords(createMonth)}</span>
-                                                <span id="updated-at-text">Updated at:</span>
+                                                <span id="updated-at-text">Updated on:</span>
                                                 <span id="update-text">{updateInWords(updateMonth)}</span>
                                             </div>
                                             <span id="note-count-text">{`${noteCount} Notes`}</span>
