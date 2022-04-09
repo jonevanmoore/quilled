@@ -3,11 +3,67 @@
     font-family: 'Gothic A1', sans-serif;
 }
 
+.del-edit-btns {
+    display: flex;
+    justify-content: end;
+}
+
+.del-edit-btns>* {
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+    transition: 0.5s;
+}
+
+.del-edit-btns>*:hover {
+    text-decoration: underline;
+}
+
+/* DISPLAYS */
+.isDisplayed {
+    display: block;
+}
+
+.notDisplayed {
+    display: none;
+}
+
+
+/* DISPLAYS */
 .indieTop {
     border-bottom: 1px solid aliceblue;
     padding-bottom: 10px;
 }
 
+.indieNotebookTitle {
+    position: relative;
+}
+
+.created-updated-indie-div {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 8px;
+}
+
+#create-updated-indie {
+    color: rgb(205, 203, 203);
+    font-size: 12px;
+}
+
+.indieNotebookCreated {
+    color: aliceblue;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 5px;
+}
+
+
 h2 {
     color: aliceblue;
+}
+
+.notes-page-link {
+    margin-top: 10px;
 }

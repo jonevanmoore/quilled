@@ -109,8 +109,13 @@
     left: 370px
 }
 
+#create-account1 {
+    color: rgb(0, 150, 173);
+}
+
 #create-account2 {
     margin-left: 10px;
+    color: rgb(0, 150, 173);
 }
 
 .jon-links {

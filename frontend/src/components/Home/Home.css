@@ -35,7 +35,6 @@ h3 {
 .notebooks-squares {
     overflow-x: scroll;
     display: flex;
-    flex-direction: row-reverse;
     width: 60%;
     border-right: 2px solid aliceblue;
     border-left: 2px solid aliceblue;
@@ -44,11 +43,14 @@ h3 {
     background-attachment: fixed;
     border: 1px solid aliceblue;
     width: 100%;
+    transition: 0.5s;
+    border-radius: 5px;
 }
 
 .notebook-link {
     text-decoration: none;
     display: inline-grid;
+    transition: 0.5s;
 }
 
 .notebook-link-div {
@@ -59,6 +61,7 @@ h3 {
     height: 200px;
     text-align: center;
     transition: 0.3s;
+    border-radius: 5px;
 }
 
 
@@ -66,7 +69,7 @@ h3 {
     width: 210px;
     background-color: aliceblue;
     color: rgb(0, 0, 0);
-    border-radius: 2px;
+    border-radius: 15px;
     margin-bottom: 0;
     transform: scale(1.1);
     transform-origin: center;
@@ -89,8 +92,8 @@ h3 {
     background-attachment: fixed;
     overflow-x: scroll;
     display: flex;
-    flex-direction: row-reverse;
     border: 1px solid aliceblue;
+    border-radius: 5px;
 }
 
 .note-link {
@@ -107,13 +110,14 @@ h3 {
     width: 200px;
     height: 200px;
     transition: 0.3s;
+    border-radius: 5px;
 }
 
 .note-link-div:hover {
     width: 220px;
     background-color: aliceblue;
     color: rgb(0, 0, 0);
-    border-radius: 2px;
+    border-radius: 15px;
     transform: scale(1.1);
     transform-origin: center
 }

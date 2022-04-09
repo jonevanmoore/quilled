@@ -14,10 +14,10 @@ const Notes = () => {
     const userId = sessionUser.id
 
     const notes = useSelector(state => state.notes.notes)
-    const noteData = Object.values(notes)
+    const noteData = Object.values(notes).reverse()
 
     const notebooks = useSelector(state => state.notebooks.notebooks);
-    const nbData = Object.values(notebooks)
+    const nbData = Object.values(notebooks).reverse()
 
 
     useEffect(() => {
