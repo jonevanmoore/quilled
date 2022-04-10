@@ -44,12 +44,7 @@ function SignupFormPage() {
     //USERNAME VALIDATION
     useEffect(() => {
         //EMAIL
-        if (!emailList.includes(email) && validateEmail(email)) {
-            setEmailAvail('valid')
-        } else {
-            setEmailAvail('invalid')
-        }
-        if (email.length < 100 && email.length > 6) {
+        if (!emailList.includes(email) && validateEmail(email) && email.length > 6 && email.length < 100) {
             setEmailAvail('valid')
         } else {
             setEmailAvail('invalid')

@@ -327,8 +327,15 @@ ul {
     .create-account-div {
         font-size: 20px;
         position: relative;
-        left: 70px;
+        left: 20px;
         top: 10px;
+    }
+
+    #create-account1,
+    #create-account2 {
+        position: relative;
+        left: 60px;
+
     }
 
     .jon-links {
