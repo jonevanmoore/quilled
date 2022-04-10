@@ -57,8 +57,7 @@ export default function IndieNotebook() {
         return `${date.toLocaleString('en-US', { month: 'long' })} ${notebookUpCreateDay} ${notebookUpCreateYear}`
     }
 
-
-    const deleteNotebook = () => {
+    const deleteNotes = () => {
         //DELETE ASSOCIATED NOTES AS WELL
         noteData.map(note => {
             const noteId = note.id;
@@ -69,11 +68,19 @@ export default function IndieNotebook() {
                 }))
             }
         })
+    }
+
+    const deleteNotebook = () => {
         dispatch(notebooksActions.destroyNotebook({
             userId,
             id: notebookId
         }))
         history.push('/')
+    }
+
+    const deleteNotesAndNotebook = () => {
+        deleteNotes()
+        deleteNotebook()
     }
 
     const editNotebook = () => {
@@ -104,7 +111,7 @@ export default function IndieNotebook() {
             <div className='indieNotebookContainer'>
                 <div className='del-edit-btns'>
                     <button onClick={editDisplayed} id="edit-btn">EDIT</button>
-                    <button onClick={deleteNotebook}>DELETE</button>
+                    <button onClick={deleteNotesAndNotebook}>DELETE</button>
                 </div>
                 <div className='indieTop'>
                     <div className={titleDisplay}>
