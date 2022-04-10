@@ -13,6 +13,7 @@
 .notebooks-page-container {
     font-family: 'Gothic A1', sans-serif;
     animation: transitionIn 0.8s;
+    padding-bottom: 15px;
 }
 
 #notebooks-text {

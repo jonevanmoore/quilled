@@ -18,6 +18,10 @@
     }
 }
 
+.mobile-login-link {
+    display: none;
+}
+
 .login-link-div {
     background-image: radial-gradient(circle farthest-corner at 32.7% 82.7%, rgb(0, 150, 173) 8.3%, rgba(15, 51, 92, 1) 79.4%);
     background-repeat: no-repeat;
@@ -296,45 +300,16 @@ ul {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
 
     /* LEFT SIDE */
 
     .login-link-div {
-        border-radius: 10px;
-        padding-right: 1%;
+        display: none;
     }
 
-    .logo-sign-pg {
-        width: 100px;
-        height: 150px;
-        position: relative;
-        left: 150px;
-        top: 10px;
-    }
-
-    .welcome-back-div {
-        font-size: 20px;
-        position: relative;
-        left: 70px;
-        top: -10px;
-    }
-
-    .mid-text {
-        font-size: 20px;
-        position: relative;
-        left: 5px;
-        top: -50px;
-    }
-
-    .login-btn-link {
-        font-size: 20px;
-        position: relative;
-        left: 80px;
-        top: -35px;
-    }
 
     /* LEFT SIDE END */
 
@@ -342,20 +317,29 @@ ul {
 
     .form-container-sign-up {
         background-color: aliceblue;
-        text-align: center;
-        padding-bottom: 15%;
-        padding-right: 7%;
+        margin-top: 20px;
+        padding-top: -10px;
+        padding-bottom: 0px;
+        padding-right: 25px;
+        padding-left: 0;
         border-radius: 10px;
         position: relative;
-        bottom: 5px;
+
 
     }
 
     .create-account-div {
         font-size: 20px;
         position: relative;
-        left: 70px;
+        left: 0px;
         top: 10px;
+        padding: 90;
+    }
+
+    #create-account1,
+    #create-account2 {
+        position: relative;
+        left: 70px;
     }
 
     .jon-links {
@@ -398,4 +382,30 @@ ul {
         right: 5px;
     }
 
+    .able-btn {
+        position: relative;
+        top: 50px;
+        left: 40px;
+    }
+
+    .disabled-btn {
+        position: relative;
+        top: 50px;
+        left: 40px;
+    }
+
+    .mobile-login-link {
+        display: block;
+        position: relative;
+        top: 15px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11px;
+        text-align: left;
+    }
+
+    .login-link {
+        text-decoration: none;
+        margin-left: 5px;
+        color: rgb(0, 150, 173);
+    }
 }

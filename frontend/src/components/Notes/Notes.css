@@ -12,6 +12,7 @@
 
 .notes-page-div {
     animation: transitionIn 0.8s;
+    padding-bottom: 15px;
 
 }
 

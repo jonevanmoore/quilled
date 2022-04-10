@@ -232,3 +232,53 @@
     right: 35px;
     top: 12px;
 }
+
+
+/* SCREEN SIZE */
+@media screen and (max-width: 800px) {
+    .indie-note-body {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .created-updated-indie-note-div {
+        display: flex;
+        flex-direction: column;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    #divider {
+        display: none;
+    }
+
+    #mobile-flex {
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+
+    .note-title {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    #content-span {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    /* EDIT */
+    .note-inputs {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .read-edit-btns {
+        margin: 0;
+        padding: 0;
+    }
+
+    .select-notebook {
+        width: 102%;
+    }
+}

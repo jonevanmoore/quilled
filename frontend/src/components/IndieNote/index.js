@@ -121,21 +121,27 @@ export default function IndieNote() {
                     <div id='lean-left'>
                         <h2 className='note-title'>{note?.title}</h2>
                         <div className='created-updated-indie-note-div'>
-                            <span id='create-updated-note-indie'>Created on:</span>
-                            <span className='indieNoteCreated'>{dateInWords(noteCreateMonth)}</span>
-                            <span id='create-updated-note-indie'>Updated on:</span>
-                            <span className='indieNoteCreated'>{dateUpInWords(noteUpCreateMonth)}</span>
+                            <div id='mobile-flex'>
+                                <span id='create-updated-note-indie'>Created on:</span>
+                                <span className='indieNoteCreated'>{dateInWords(noteCreateMonth)}</span>
+                            </div>
+                            <div id='mobile-flex'>
+                                <span id='create-updated-note-indie'>Updated on:</span>
+                                <span className='indieNoteCreated'>{dateUpInWords(noteUpCreateMonth)}</span>
+                            </div>
                             <span id='divider'> | </span>
-                            <span id='create-updated-note-indie'> Notebook: </span>
-                            {nbData.map(notebook => {
-                                let notebookText;
-                                if (notebook?.id === note?.notebookId) {
-                                    notebookText = notebook?.title
-                                }
-                                return (
-                                    <Link className='indieNoteCreatedLink' to={`/notebooks/${notebook?.id}`}>{notebookText}</Link>
-                                )
-                            })}
+                            <div id='mobile-flex' className='mobile-title-div'>
+                                <span id='create-updated-note-indie'> Notebook: </span>
+                                {nbData.map(notebook => {
+                                    let notebookText;
+                                    if (notebook?.id === note?.notebookId) {
+                                        notebookText = notebook?.title
+                                    }
+                                    return (
+                                        <Link className='indieNoteCreatedLink' to={`/notebooks/${notebook?.id}`}>{notebookText}</Link>
+                                    )
+                                })}
+                            </div>
 
                         </div>
                         <div id='content-span'>

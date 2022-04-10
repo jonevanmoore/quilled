@@ -203,6 +203,10 @@ function SignupFormPage() {
                     <ul className="validators">
                         <li className="avail-text pass-con-avail-text"><i className="fa-solid fa-circle-check" id={confirmVal}></i> matches password</li>
                     </ul>
+                    <div className="mobile-login-link">
+                        <span>Already have an account?</span>
+                        <Link to='/login' className="login-link">Login</Link>
+                    </div>
                     <button
                         type="submit"
                         className={btnClass}
