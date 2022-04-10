@@ -47,7 +47,7 @@
 
 .up-cancel-btns>*:hover {
     text-decoration: underline;
-    color: rgb(2, 184, 212)
+    color: rgb(2, 184, 212);
 }
 
 /* DISPLAYS */
@@ -60,11 +60,23 @@
 }
 
 /* DISPLAYS */
+.notebook-error {
+    margin: 0;
+}
+
+.notebook-error>* {
+    font-size: 11px;
+    font-weight: bold;
+    color: rgb(255, 105, 105);
+    position: relative;
+    right: 230px;
+    top: 10px;
+}
 
 .title-input {
     height: 30px;
     width: 43%;
-    margin-top: 13.8px;
+    margin-top: 13.6px;
     animation: transitionIn 0.8s;
 }
 

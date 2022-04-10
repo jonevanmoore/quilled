@@ -12,36 +12,47 @@ export default function IndieNote() {
 
     const { noteId } = useParams()
 
-    const sessionUser = useSelector(state => state.session.user);
-    const userId = sessionUser.id
+    const sessionUser = useSelector(state => state?.session?.user);
+    const userId = sessionUser?.id
 
-    const note = useSelector(state => state.notes.notes[noteId])
+    const note = useSelector(state => state?.notes?.notes[noteId])
 
-    const notebooks = useSelector(state => state.notebooks.notebooks)
-    const nbData = Object.values(notebooks)
+    const notebooks = useSelector(state => state?.notebooks?.notebooks)
+    const nbData = Object?.values(notebooks)
 
     const [noteTitle, setNoteTitle] = useState(note?.title)
     const [noteContent, setNoteContent] = useState(note?.content)
     const [notebookId, setNoteBookId] = useState(note?.notebookId || null)
     const [notebookText, setNotebookText] = useState(notebooks[note?.notebookId]?.title)
+    const [noteErrors, setNoteErrors] = useState([])
 
 
     useEffect(() => {
-        dispatch(notesActions.fetchNotes(userId))
-        dispatch(notebooksActions.fetchNotebooks(userId))
+        dispatch(notesActions?.fetchNotes(userId))
+        dispatch(notebooksActions?.fetchNotebooks(userId))
     }, [dispatch])
 
+    useEffect(() => {
+        const errors = []
+
+        if (noteTitle?.length > 100) {
+            errors?.push('Title must be 100 characters or less')
+        } else if (noteTitle?.length < 5) {
+            errors?.push('Title must be at least 5 characters long')
+        }
+        setNoteErrors(errors)
+    }, [noteTitle])
 
     const deleteNote = () => {
-        history.push('/notes')
-        dispatch(notesActions.destroyNote({
+        history?.push('/notes')
+        dispatch(notesActions?.destroyNote({
             userId,
             id: noteId
         }))
     }
 
 
-    const noteCreateDate = note?.createdAt.split('T')[0]
+    const noteCreateDate = note?.createdAt?.split('T')[0]
     const noteCreateMonth = noteCreateDate?.split('-')[1]
     const noteCreateDay = noteCreateDate?.split('-')[2]
     const noteCreateYear = noteCreateDate?.split('-')[0]
@@ -50,14 +61,14 @@ export default function IndieNote() {
         date?.setMonth(noteCreateMonth - 1)
         return `${date.toLocaleString('en-US', { month: 'long' })} ${noteCreateDay} ${noteCreateYear}`
     }
-    const noteUpCreateDate = note?.updatedAt.split('T')[0]
+    const noteUpCreateDate = note?.updatedAt?.split('T')[0]
     const noteUpCreateMonth = noteUpCreateDate?.split('-')[1]
     const noteUpCreateDay = noteUpCreateDate?.split('-')[2]
     const noteUpCreateYear = noteUpCreateDate?.split('-')[0]
     function dateUpInWords() {
         const date = new Date()
         date?.setMonth(noteUpCreateMonth - 1)
-        return `${date.toLocaleString('en-US', { month: 'long' })} ${noteUpCreateDay} ${noteUpCreateYear}`
+        return `${date?.toLocaleString('en-US', { month: 'long' })} ${noteUpCreateDay} ${noteUpCreateYear}`
     }
 
 
@@ -85,7 +96,7 @@ export default function IndieNote() {
 
 
     const editNote = () => {
-        dispatch(notesActions.editNote({
+        dispatch(notesActions?.editNote({
             userId,
             id: noteId,
             title: noteTitle,
@@ -128,7 +139,7 @@ export default function IndieNote() {
 
                         </div>
                         <div id='content-span'>
-                            {note?.content.split('\n').map((par, i) => {
+                            {note?.content?.split('\n')?.map((par, i) => {
                                 return (
                                     <p key={i}>{par}</p>
                                 )
@@ -145,34 +156,39 @@ export default function IndieNote() {
                             <select
                                 name='notebookId'
                                 value={notebookId}
-                                onChange={(e) => setNoteBookId(e?.target.value)}
+                                onChange={(e) => setNoteBookId(e?.target?.value)}
                                 className='select-notebook'
                             >
                                 {/* <option value={0}>None</option> */}
-                                {nbData.map(notebook => {
+                                {nbData?.map(notebook => {
                                     return (
                                         <option key={notebook?.id} value={notebook?.id || 0}>{notebook?.title}</option>
                                     )
                                 })}
                             </select>
+                            <ul className='note-errors'>
+                                {noteErrors.map((error, i) => (
+                                    <li key={i}>{error}</li>
+                                ))}
+                            </ul>
                             <input
                                 type='text'
                                 value={noteTitle}
-                                onChange={(e) => setNoteTitle(e?.target.value)}
+                                onChange={(e) => setNoteTitle(e?.target?.value)}
                                 className='note-title-input'
                             >
                             </input>
                             <textarea
                                 type='text'
                                 value={noteContent}
-                                onChange={(e) => setNoteContent(e?.target.value)}
+                                onChange={(e) => setNoteContent(e?.target?.value)}
                                 className='note-content-input'
                             >
                             </textarea>
                             <div className='edit-btns'>
                                 <button onClick={deleteNote} id='del-can'>DELETE</button>
                                 <button onClick={readDisplayed} id='del-can'>CANCEL</button>
-                                <button onClick={editNote} id='up-btn'>UPDATE</button>
+                                <button onClick={editNote} id='up-btn' disabled={noteErrors?.length > 0}>UPDATE</button>
                             </div>
                         </div>
                     </div>

@@ -38,8 +38,8 @@ function Navigation({ isLoaded }) {
             <div className="nav-div">
                 <div className='user-stats' id='nav-el'>
                     <div className='user-info'>
-                        <span>{sessionUser?.username}</span>
-                        <span>{sessionUser?.email}</span>
+                        <span className='sesh-username'>{sessionUser?.username}</span>
+                        <span className='sesh-email'>{sessionUser?.email}</span>
                     </div>
                     <div id='stats'>
                         <span>{`${nbAmount} notebooks`}</span>
