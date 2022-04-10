@@ -127,15 +127,15 @@ export default function IndieNote() {
                             <span className='indieNoteCreated'>{dateUpInWords(noteUpCreateMonth)}</span>
                             <span id='divider'> | </span>
                             <span id='create-updated-note-indie'> Notebook: </span>
-                            {/* {nbData.map(notebook => {
+                            {nbData.map(notebook => {
                                 let notebookText;
                                 if (notebook?.id === note?.notebookId) {
                                     notebookText = notebook?.title
                                 }
                                 return (
-                                    )
-                                })} */}
-                            <Link className='indieNoteCreatedLink' to={`/notebooks/${notebooks[note?.notebookId]?.title}`}>{notebookText}</Link>
+                                    <Link className='indieNoteCreatedLink' to={`/notebooks/${notebook?.id}`}>{notebookText}</Link>
+                                )
+                            })}
 
                         </div>
                         <div id='content-span'>
@@ -156,13 +156,13 @@ export default function IndieNote() {
                             <select
                                 name='notebookId'
                                 value={notebookId}
-                                onChange={(e) => setNoteBookId(e?.target?.value)}
+                                onChange={(e) => setNoteBookId(e?.target?.value || notebookId)}
                                 className='select-notebook'
                             >
-                                {/* <option value={0}>None</option> */}
+                                <option value={0}>None</option>
                                 {nbData?.map(notebook => {
                                     return (
-                                        <option key={notebook?.id} value={notebook?.id || 0}>{notebook?.title}</option>
+                                        <option key={notebook?.id} value={notebook?.id}>{notebook?.title}</option>
                                     )
                                 })}
                             </select>

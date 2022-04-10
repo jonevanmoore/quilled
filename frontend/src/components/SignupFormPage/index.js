@@ -49,6 +49,11 @@ function SignupFormPage() {
         } else {
             setEmailAvail('invalid')
         }
+        if (email.length < 100 && email.length > 6) {
+            setEmailAvail('valid')
+        } else {
+            setEmailAvail('invalid')
+        }
 
         //USERNAME
         if (!usernameList.includes(username)) {
