@@ -41,6 +41,7 @@
     text-decoration: none;
     display: inline-grid;
     animation: transitionIn 0.8s;
+    border-radius: 5px;
 
 }
 
@@ -102,6 +103,7 @@
 }
 
 .note-data {
+
     text-decoration: none;
 }
 

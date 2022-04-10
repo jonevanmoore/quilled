@@ -31,6 +31,8 @@ h3 {
 .notebooks-notes-container {
     font-family: 'Gothic A1', sans-serif;
     animation: transitionIn 0.8s;
+    position: relative;
+    bottom: 25px;
 }
 
 #home-text {
@@ -38,6 +40,8 @@ h3 {
     color: aliceblue;
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
+    position: relative;
+    top: 20px;
 }
 
 .notebook-div {

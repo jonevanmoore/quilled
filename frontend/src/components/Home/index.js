@@ -37,8 +37,8 @@ export default function Home() {
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Open+Sans:wght@300;400&family=Oswald:wght@200&family=Roboto&display=swap');
             </style>
-            <h2 id="home-text">Home</h2>
             <div className="notebooks-notes-container">
+                <h2 id="home-text">Home</h2>
                 <div className="notebook-div">
 
                     <div id="notebook-buttons">

@@ -23,6 +23,7 @@ export default function IndieNote() {
     const [noteTitle, setNoteTitle] = useState(note?.title)
     const [noteContent, setNoteContent] = useState(note?.content)
     const [notebookId, setNoteBookId] = useState(note?.notebookId || null)
+    const [notebookText, setNotebookText] = useState(notebooks[note?.notebookId]?.title)
 
 
     useEffect(() => {
@@ -92,6 +93,7 @@ export default function IndieNote() {
             notebookId: notebookId
         }))
 
+        setNotebookText(notebooks[note?.notebookId]?.title)
         readDisplayed()
     }
 
@@ -114,15 +116,15 @@ export default function IndieNote() {
                             <span className='indieNoteCreated'>{dateUpInWords(noteUpCreateMonth)}</span>
                             <span id='divider'> | </span>
                             <span id='create-updated-note-indie'> Notebook: </span>
-                            {nbData.map(notebook => {
+                            {/* {nbData.map(notebook => {
                                 let notebookText;
                                 if (notebook?.id === note?.notebookId) {
                                     notebookText = notebook?.title
                                 }
                                 return (
-                                    <Link className='indieNoteCreatedLink' to={`/notebooks/${notebook?.id}`}>{notebookText}</Link>
-                                )
-                            })}
+                                    )
+                                })} */}
+                            <Link className='indieNoteCreatedLink' to={`/notebooks/${notebooks[note?.notebookId]?.title}`}>{notebookText}</Link>
 
                         </div>
                         <div id='content-span'>

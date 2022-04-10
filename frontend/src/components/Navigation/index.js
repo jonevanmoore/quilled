@@ -6,6 +6,7 @@ import logo from '../static/images/quilled.png';
 import './Navigation.css';
 import * as notebooksAction from '../../store/notebooks'
 import * as notesAction from '../../store/notes'
+import * as sessionActions from '../../store/session'
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -24,6 +25,10 @@ function Navigation({ isLoaded }) {
         }
     }, [dispatch])
 
+    const logout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.logout());
+    };
 
     let sessionLinks;
     let navGreet;
@@ -51,9 +56,10 @@ function Navigation({ isLoaded }) {
                 <div id='nav-el'>
                     <NavLink to="/notes" id="navlink">Notes</NavLink>
                 </div>
-                <div className='user-stuff' id='nav-el'>
-                    <ProfileButton user={sessionUser} />
+                <div >
+                    <button onClick={logout} className='logout-btn'>LOGOUT</button>
                 </div>
+
             </div>
         );
     } else {
