@@ -20,12 +20,23 @@ export default function IndieNotebook() {
     const noteData = Object.values(notes)
 
     const [notebookTitle, setNotebookTitle] = useState(notebook?.title)
+    const [titleErrors, setTitleErrors] = useState([])
 
     useEffect(() => {
         dispatch(notebooksActions.fetchNotebooks(userId))
         dispatch(notesActions.fetchNotes(userId))
     }, [dispatch])
 
+    useEffect(() => {
+        const errors = []
+
+        if (notebookTitle?.length > 100) {
+            errors?.push('Title must be 100 characters or less')
+        } else if (notebookTitle?.length < 5) {
+            errors?.push('Title must be at least 5 characters long')
+        }
+        setTitleErrors(errors)
+    }, [notebookTitle])
 
     const notebookCreateDate = notebook?.createdAt.split('T')[0]
     const notebookCreateMonth = notebookCreateDate?.split('-')[1]
@@ -100,6 +111,11 @@ export default function IndieNotebook() {
                         <h2 className='indieNotebookTitle'>{notebook?.title}</h2>
                     </div>
                     <div className={editDisplay}>
+                        <ul className='notebook-error'>
+                            {titleErrors.map((error, i) => (
+                                <li key={i}>{error}</li>
+                            ))}
+                        </ul>
                         <input
                             value={notebookTitle}
                             onChange={(e) => setNotebookTitle(e?.target.value)}
@@ -108,7 +124,7 @@ export default function IndieNotebook() {
                         >
                         </input>
                         <div className='up-cancel-btns'>
-                            <button onClick={editNotebook}>UPDATE</button>
+                            <button onClick={editNotebook} disabled={titleErrors?.length > 0}>UPDATE</button>
                             <button onClick={titleDisplayed}>CANCEL</button>
                         </div>
                     </div>

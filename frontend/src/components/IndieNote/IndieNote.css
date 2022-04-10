@@ -20,29 +20,31 @@
 }
 
 .read-edit-btns>* {
-    border: 3px solid #0096ad;
+    border: 1px solid transparent;
     font-size: 17px;
     font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
 }
 
 .read-btn {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .edit-btn {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .color {
     color: aliceblue;
-    background-color: rgb(0, 150, 173);
+    background-color: transparent;
+    border: 1px solid aliceblue;
 }
 
 .no-color {
-    background-color: aliceblue;
-    color: rgb(0, 150, 173);
+    background-color: rgb(226, 226, 226);
+    color: rgb(52, 52, 52);
     transition: 0.3s;
 }
 
@@ -87,6 +89,8 @@
 #divider {
     padding-left: 2px;
     padding-right: 5px;
+    position: relative;
+    bottom: 3px;
 }
 
 #create-updated-note-indie {
@@ -170,11 +174,13 @@
 
 .select-notebook {
     width: 40%;
+    position: relative;
+    top: 15px;
 }
 
 .note-content-input {
     width: 100%;
-    height: 410px;
+    height: 390px;
     font-family: 'Gothic A1', sans-serif;
     border: 1px solid rgb(180, 180, 180);
 }
@@ -209,4 +215,20 @@
     background-color: rgb(0, 150, 173);
     color: aliceblue;
     border-color: rgb(0, 150, 173);
+}
+
+/* ERROR HANDLE */
+.note-errors {
+    margin: 0;
+
+}
+
+.note-errors>* {
+    color: red;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: left;
+    position: relative;
+    right: 35px;
+    top: 12px;
 }
