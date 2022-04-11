@@ -1,0 +1,22 @@
+.page-not-found {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Gothic A1', sans-serif;
+    color: aliceblue;
+}
+
+.return-home {
+    text-align: center;
+    font-family: 'Gothic A1', sans-serif;
+    color: aliceblue;
+}
+
+.home-link {
+    text-decoration: none;
+    color: rgb(2, 186, 215);
+    transition: 0.3s;
+}
+
+.home-link:hover {
+    color: aliceblue;
+}
