@@ -19,8 +19,10 @@ function Footer() {
                 <i className="fa-brands fa-git-alt link-footer"></i>
                 <img src={vsCodeLogo} />
                 <img src={herokuLogo} />
-                <i className="fa-brands fa-github link-footer git-footer"></i>
-                <i className="fa-brands fa-linkedin-in link-footer linkedin-footer"></i>
+
+                <a href="https://github.com/jonevanmoore" target="_blank"> <i className="fa-brands fa-github link-footer git-footer leave-page"></i></a>
+
+                <a href="https://linkedin.com/in/jonevanmoore" target="_blank"><i className="fa-brands fa-linkedin-in link-footer linkedin-footer leave-page"></i></a>
             </footer>
         </>
     )

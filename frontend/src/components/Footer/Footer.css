@@ -28,6 +28,14 @@ footer {
     color: white;
 }
 
+.leave-page {
+    transition: 0.3s;
+}
+
+.leave-page:hover {
+    color: rgb(2, 186, 215);
+}
+
 @media screen and (max-width: 800px) {
     footer {
         display: none;
