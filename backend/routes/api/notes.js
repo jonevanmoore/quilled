@@ -21,7 +21,7 @@ router.get('/users/:userId(\\d+)/notes', asyncHandler(async (req, res) => {
 router.post('/users/:userId(\\d+)/notes', asyncHandler(async (req, res) => {
     const { userId } = req.body
 
-    const newNote = await Note.create({ title: 'NEW NOTE', content: 'EMPTY CONTENT', userId })
+    const newNote = await Note.create({ title: 'NEW NOTE', content: 'EMPTY CONTENT', userId, notebookId: 1 })
 
     return res.json({ newNote })
 

@@ -10,7 +10,7 @@ module.exports = {
       */
     return queryInterface.bulkInsert('Notebooks', [
       {
-        title: 'My name is Doug Dimmadome, owner of the Dimmsdale Dimmadome!',
+        title: 'Miscellaneous',
         userId: 1
       },
       {

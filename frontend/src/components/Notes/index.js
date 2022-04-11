@@ -55,8 +55,8 @@ const Notes = () => {
                                 }
                             })
                             if (!notebookTitle) {
-                                notebookTitle = 'Unassigned'
-                                notebookToNoteId = 'unassigned'
+                                notebookTitle = nbData[0]
+                                // notebookToNoteId = 'unassigned'
                             }
                             let contentTruncate;
 
