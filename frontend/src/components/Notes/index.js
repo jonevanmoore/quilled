@@ -54,10 +54,10 @@ const Notes = () => {
                                     notebookToNoteId = "notebook-4-title-text"
                                 }
                             })
-                            if (!notebookTitle) {
-                                notebookTitle = nbData[0]
-                                // notebookToNoteId = 'unassigned'
-                            }
+                            // if (!notebookTitle) {
+                            //     notebookTitle = nbData[0]
+                            //     // notebookToNoteId = 'unassigned'
+                            // }
                             let contentTruncate;
 
                             if (note.content.length > 52) {

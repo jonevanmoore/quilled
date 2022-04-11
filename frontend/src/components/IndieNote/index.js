@@ -12,13 +12,13 @@ export default function IndieNote() {
 
     const { noteId } = useParams()
 
-    const sessionUser = useSelector(state => state?.session?.user);
-    const userId = sessionUser?.id
+    const sessionUser = useSelector(state => state.session.user);
+    const userId = sessionUser.id
 
-    const note = useSelector(state => state?.notes?.notes[noteId])
+    const note = useSelector(state => state.notes.notes[noteId])
 
-    const notebooks = useSelector(state => state?.notebooks?.notebooks)
-    const nbData = Object?.values(notebooks)
+    const notebooks = useSelector(state => state.notebooks.notebooks)
+    const nbData = Object.values(notebooks)
 
     const [noteTitle, setNoteTitle] = useState(note?.title)
     const [noteContent, setNoteContent] = useState(note?.content)
@@ -96,7 +96,7 @@ export default function IndieNote() {
 
 
     const editNote = () => {
-        dispatch(notesActions?.editNote({
+        dispatch(notesActions.editNote({
             userId,
             id: noteId,
             title: noteTitle,
@@ -104,7 +104,7 @@ export default function IndieNote() {
             notebookId: notebookId
         }))
 
-        setNotebookText(notebooks[note?.notebookId]?.title)
+        // setNotebookText(notebooks[note?.notebookId]?.title)
         readDisplayed()
     }
 
@@ -138,7 +138,7 @@ export default function IndieNote() {
                                         notebookText = notebook?.title
                                     }
                                     return (
-                                        <Link className='indieNoteCreatedLink' to={`/notebooks/${notebook?.id}`}>{notebookText}</Link>
+                                        <Link className='indieNoteCreatedLink' to={`/notebooks/${notebookId}`}>{notebookText}</Link>
                                     )
                                 })}
                             </div>
@@ -162,10 +162,10 @@ export default function IndieNote() {
                             <select
                                 name='notebookId'
                                 value={notebookId}
-                                onChange={(e) => setNoteBookId(e?.target?.value)}
+                                onChange={(e) => setNoteBookId(e.target.value)}
                                 className='select-notebook'
                             >
-                                {nbData?.map(notebook => {
+                                {nbData.map(notebook => {
                                     return (
                                         <option key={notebook?.id} value={notebook?.id}>{notebook?.title}</option>
                                     )
