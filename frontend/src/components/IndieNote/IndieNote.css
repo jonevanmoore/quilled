@@ -90,7 +90,9 @@
     padding-left: 2px;
     padding-right: 5px;
     position: relative;
-    bottom: 3px;
+    top: 3px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #create-updated-note-indie {
