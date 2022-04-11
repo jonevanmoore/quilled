@@ -6,6 +6,10 @@
     animation: transitionIn 0.5s;
 }
 
+.mobile-login-link {
+    display: none;
+}
+
 @keyframes transitionIn {
     from {
         opacity: 0;

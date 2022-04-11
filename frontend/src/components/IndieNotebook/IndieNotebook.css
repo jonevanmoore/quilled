@@ -113,3 +113,13 @@ h2 {
 .notes-page-link {
     margin-top: 10px;
 }
+
+#unassigned-text {
+    font-size: 12px;
+    color: aliceblue;
+    margin: 0;
+}
+
+#the-unassigned {
+    color: rgb(1, 208, 132);
+}

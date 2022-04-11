@@ -162,10 +162,9 @@ export default function IndieNote() {
                             <select
                                 name='notebookId'
                                 value={notebookId}
-                                onChange={(e) => setNoteBookId(e?.target?.value || notebookId)}
+                                onChange={(e) => setNoteBookId(e?.target?.value)}
                                 className='select-notebook'
                             >
-                                <option value={0}>None</option>
                                 {nbData?.map(notebook => {
                                     return (
                                         <option key={notebook?.id} value={notebook?.id}>{notebook?.title}</option>
