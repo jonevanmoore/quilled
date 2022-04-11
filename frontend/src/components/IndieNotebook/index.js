@@ -216,7 +216,6 @@ export default function IndieNotebook() {
         return (
             <>
                 <title>{`Quilled - ${notebook?.title}`}</title>
-                {console.log(notebookId)}
                 <div className='indieNotebookContainer'>
                     <div className='del-edit-btns'>
                         <button onClick={editDisplayed} id="edit-btn">EDIT</button>
